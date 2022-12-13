@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './components/Login';
 import Home from './components/Home';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
+import Posts from './components/Posts';
+import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom"
 
 
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT"
-  // const [posts, setPosts] = useState([])
 
   return (
     <Router>
@@ -16,23 +16,22 @@ const App = () => {
       <h1>Stranger's Things </h1>
       <div>
         
-        <Link to="/home">
-        <h2>HOME</h2>
-        </Link>
-        
-        <h2>POSTS</h2>
+        <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/home"><h2>HOME</h2></NavLink>
+        <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/posts"><h2>POSTS</h2></NavLink>
         <h2>PROFILE</h2> 
-        <Link to="/login"><h2>LOGIN</h2></Link>
+        <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/"><h2>LOGIN</h2></NavLink>
       </div>
     </header>
         <Switch>
-          <Route  path = "">
-            <Login 
-            url = {url}
-            />
+          <Route  exact path = "/">
+            <Login />
           </Route>
           <Route path = "/home">
             <Home />
+          </Route>
+          <Route path = "/posts">
+            <Posts 
+            url= {url}/>
           </Route>
         </Switch>
       </Router>             

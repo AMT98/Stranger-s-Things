@@ -1,12 +1,7 @@
 import React, {useState} from 'react';
 
-const Login = ({url}) => {
-    // const handleClick = async () => {
-    //     const response = await fetch(`{url}/posts`)
-    //     const data = response.json()
-    //     console.log(data)
-    //     setPosts(data)
-    // }
+const Login = () => {
+
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const handleSubmit = (e) => {
