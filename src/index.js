@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './components/Login';
+import Home from './components/Home';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
 
 
@@ -14,20 +15,24 @@ const App = () => {
     <header className='header'>
       <h1>Stranger's Things </h1>
       <div>
+        
+        <Link to="/home">
         <h2>HOME</h2>
+        </Link>
+        
         <h2>POSTS</h2>
         <h2>PROFILE</h2> 
-        <Link to="./components/Login.js"><h2>LOG IN</h2></Link>
+        <Link to="/login"><h2>LOGIN</h2></Link>
       </div>
     </header>
         <Switch>
-          <Route path = "./components/Login.js">
+          <Route  path = "">
             <Login 
             url = {url}
             />
-            {/* <div>
-              hi
-            </div> */}
+          </Route>
+          <Route path = "/home">
+            <Home />
           </Route>
         </Switch>
       </Router>             

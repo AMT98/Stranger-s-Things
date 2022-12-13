@@ -20,28 +20,27 @@ const Login = ({url}) => {
         <form
         onClick={handleSubmit}
         className='loginInput'>
-        
-                <h1>LOG IN</h1>
+            <h1>LOG IN</h1>
             <label>
-            <input 
-            className='inputField'
-            type="text" 
-            placeholder= "Enter your username" 
-            value={userName} 
-            onChange={(e) => setUserName(e.target.value)}>
+                <input 
+                    className='inputField'
+                    type="text" 
+                    placeholder= "Enter your username" 
+                    value={userName} 
+                    onChange={(e) => setUserName(e.target.value)}>
 
-            </input>
+                </input>
             </label>
 
             <label>
-            <input 
-            className='inputField'
-            type="text" 
-            placeholder= "Enter your password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)}>
+                <input 
+                    className='inputField'
+                    type="text" 
+                    placeholder= "Enter your password" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)}>
 
-            </input>
+                </input>
             </label>
             <button>Submit</button>
         </form>
