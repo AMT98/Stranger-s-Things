@@ -10,6 +10,7 @@ const Login = () => {
         )
     }
 
+
     return (
         <>
         <form
@@ -37,7 +38,7 @@ const Login = () => {
 
                 </input>
             </label>
-            <button>Submit</button>
+            <button className="inputBtn">Submit</button>
         </form>
         
         </>

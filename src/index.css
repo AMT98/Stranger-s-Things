@@ -26,17 +26,17 @@
   margin-top: 100px;
 }
 .inputField {
-  min-width: 17rem;
+  min-width: 20rem;
   padding: 15px;
   margin: 10px;
   border: 1px solid black;
   border-radius: 20px;
 }
-.loginInput button {
+.inputBtn, .createBtn {
   min-height: 40px;
   min-width: 130px;
   display: block;
-  margin: 30px auto;
+  margin: 5px auto;
   padding: 10px;
   border-radius: 40px;
   border-color: gray;
@@ -46,8 +46,8 @@
   cursor: pointer;
   transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
 }
-.loginInput button:hover{
-  background-color: gray;
+.inputBtn:hover, .createBtn:hover{
+  background-color: rgb(126, 168, 173);
   color: white;
   font-weight: bolder;
   border-top: none;
@@ -55,7 +55,7 @@
   letter-spacing: 2px;
   transform: scale(1.10);
   transition: 0.55s;
-  box-shadow: inset 200px 0 0 0 black;
+  box-shadow: inset 200px 0 0 0 rgb(71, 125, 170);
   border-radius: 40px;
 }
 .navLinks {
@@ -106,4 +106,44 @@
   transform: scale(1.02);
   transition: color .5s ease-in-out, box-shadow .7s ease-in-out;
   cursor: pointer;
+}
+
+.postSearchBar {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.searchBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display:inline-flex;
+  gap: 20px;
+}
+.addForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  
+}
+.addInput {
+  padding: 40px;
+  margin: 10px;
+  width: 500px;
+  border-radius: 15px;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(227, 238, 240);
+  font-weight: bold;
+}
+.addForm h1 {
+  font-size: 50px;
+  margin: 35px;
+  letter-spacing: 2px;
+}
+.checkedInput {
+  color: blue;
 }

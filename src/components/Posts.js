@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from "react";
+import {useHistory} from "react-router-dom"
 
 const Posts = ({url}) => {
 
     const [posts, setPosts] = useState([])
- 
-    const fetchPosts = async() => {
+    const [search, setSearch] = useState([])
+
     
+    let history= useHistory()
+    
+    const fetchPosts = async() => {
+        
         const response = await fetch(`${url}/posts`
         // , {
-        //     method: 'POST',
+            //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json'
         //         // 'Authorization': 'Bearer TOKEN_STRING_HERE'
@@ -21,16 +26,47 @@ const Posts = ({url}) => {
         console.log(data);
 
  }
- useEffect(() => {
-    fetchPosts()
- },[])
+    useEffect(() => {
+        fetchPosts();
+    },[]);
+    const handleSubmit = (e) => {
+        return (
+            e.preventDefault()
+            )
+        }
     return (
         <>
-        <h1 className="postHeader">POSTS</h1>
+        <div className="postHeader">
+                <h1>POSTS</h1>
+        </div>
+        <hr></hr>
+        <form
+        className="postSearchBar" 
+        onSubmit={handleSubmit}>
+        
+            <label>
+                <input
+                className="inputField"
+                type="text"
+                placeholder = "Search"
+                value={search}
+                onChange= {(e) => setSearch(e.target.value)}
+                >
+                </input>
+                <label className="searchBtn">
+                <button className="inputBtn">Search</button>
+                </label>
+                <button className="inputBtn"
+                onClick={() => {
+                    history.push('/add')
+                }}
+                >Add a post</button>
+            </label>
+        </form>
         <hr></hr>
         {posts.map((post, i) => { 
-        return (
-            <div key={i} className = "postContainer">
+            return (
+                <div key={i} className = "postContainer">
                 <div className="postDetails">
                     <h1>{ post.title }</h1>
                     <p> { post.description }</p>

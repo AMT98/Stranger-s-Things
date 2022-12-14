@@ -4,6 +4,7 @@ import './index.css';
 import Login from './components/Login';
 import Home from './components/Home';
 import Posts from './components/Posts';
+import Add from './components/Add';
 import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom"
 
 
@@ -32,6 +33,9 @@ const App = () => {
           <Route path = "/posts">
             <Posts 
             url= {url}/>
+          </Route>
+          <Route path = "/add">
+            <Add />
           </Route>
         </Switch>
       </Router>             
