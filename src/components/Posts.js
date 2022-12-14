@@ -26,15 +26,18 @@ const Posts = ({url}) => {
  },[])
     return (
         <>
-        <h1>POSTS</h1>
+        <h1 className="postHeader">POSTS</h1>
         <hr></hr>
         {posts.map((post, i) => { 
         return (
-            <div key={i}>
-            <h1>{ post.title }</h1>
-            <h2> { post.description }</h2>
-            <h2> { post.price }</h2>
-            <hr></hr>
+            <div key={i} className = "postContainer">
+                <div className="postDetails">
+                    <h1>{ post.title }</h1>
+                    <p> { post.description }</p>
+                    <h3> Price: { post.price }</h3>
+                    <h3> Location: { post.location }</h3>
+                    <h3> Deliver: { post.willDeliver }</h3>
+                </div>
             </div>
         
         )})}
