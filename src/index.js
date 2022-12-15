@@ -8,7 +8,10 @@ import Add from './components/Add';
 import Signup from './components/Signup';
 import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom"
 
-
+// signup is working for thursday work on redirecting to login page if its success
+// work login page change it to log out button and work that 
+// then create profile page 
+// be able to add post 
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT"
 
@@ -26,7 +29,9 @@ const App = () => {
     </header>
         <Switch>
           <Route  exact path = "/">
-            <Login />
+            <Login 
+            url = {url}
+            />
           </Route>
           <Route path = "/home">
             <Home />

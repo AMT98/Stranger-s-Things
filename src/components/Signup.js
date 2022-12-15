@@ -4,7 +4,7 @@ const Signup = ({url}) => {
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-console.log(userName);
+// console.log(userName);
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -21,7 +21,7 @@ console.log(userName);
                 })
             }) 
             const data = await response.json()
-            console.log(data) 
+            // console.log(data.success) 
         }
         catch(error){
             console.error(error)

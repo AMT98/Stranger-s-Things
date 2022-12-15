@@ -1,16 +1,35 @@
 import React, {useState} from 'react';
 import {useHistory} from "react-router-dom"
 
-const Login = () => {
+const Login = ({url}) => {
 
     let history= useHistory()
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-    const handleSubmit = (e) => {
-        return (
-            e.preventDefault()
-        )
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await fetch(`${url}/users/login`, {
+                method : "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: {
+                        username: `${userName}`,
+                        password: `${password}`
+                    }
+                })
+            }) 
+            const data = await response.json()
+            console.log(data) 
+        }
+        catch(error){
+            console.error(error)
+        }
+        
     }
+
 
 
     return (
