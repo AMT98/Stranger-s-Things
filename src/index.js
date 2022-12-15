@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Posts from './components/Posts';
 import Add from './components/Add';
+import Signup from './components/Signup';
 import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom"
 
 
@@ -37,6 +38,9 @@ const App = () => {
           <Route path = "/add">
             <Add
             url={url} />
+          </Route>
+          <Route path="/signup" >
+            <Signup />
           </Route>
         </Switch>
       </Router>             
