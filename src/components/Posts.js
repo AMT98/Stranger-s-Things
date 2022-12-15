@@ -30,9 +30,8 @@ const Posts = ({url}) => {
         fetchPosts();
     },[]);
     const handleSubmit = (e) => {
-        return (
-            e.preventDefault()
-            )
+        e.preventDefault()
+        
         }
     return (
         <>
@@ -56,7 +55,7 @@ const Posts = ({url}) => {
                 <label className="searchBtn">
                 <button className="inputBtn">Search</button>
                 </label>
-                <hr></hr>
+
                 <button className="inputBtn"
                 onClick={() => {
                     history.push('/add')
@@ -69,12 +68,12 @@ const Posts = ({url}) => {
             return (
             <div key={i} className = "postContainer">
                 <div className="postDetails">
-                    <h1>{ post.title }</h1>
+                    <h2>{ post.title }</h2>
                     <p> { post.description }</p>
-                    <h3> Price: { post.price }</h3>
-                    <h3> Location: { post.location }</h3>
-                    <h3> Will Deliver: { post.willDeliver ? "True" : "False" }</h3>
-                    <h3> Post Active: { post.active ? "True" : "False" }</h3>
+                    <h4> Price: { post.price }</h4>
+                    <h4> Location: { post.location }</h4>
+                    <h4> Will Deliver: { post.willDeliver ? "True" : "False" }</h4>
+                    <h4> Post Active: { post.active ? "True" : "False" }</h4>
                 </div>
             </div>
         

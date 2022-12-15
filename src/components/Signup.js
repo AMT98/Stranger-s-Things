@@ -1,14 +1,34 @@
 import React, {useState} from 'react';
 
-const Signup = () => {
+const Signup = ({url}) => {
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-    const handleSubmit = (e) => {
-        return (
-            e.preventDefault()
-        )
+console.log(userName);
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await fetch(`${url}/users/register`, {
+                method : "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: {
+                        username: `${userName}`,
+                        password: `${password}`
+                    }
+                })
+            }) 
+            const data = await response.json()
+            console.log(data) 
+        }
+        catch(error){
+            console.error(error)
+        }
+        
     }
+
     return (
         <>
         <form
@@ -31,7 +51,7 @@ const Signup = () => {
             <label>
                 <input 
                     className='inputField'
-                    type="text" 
+                    type="password" 
                     placeholder= "Password*" 
                     maxLength="8"
                     required
@@ -41,7 +61,8 @@ const Signup = () => {
                 </input>
             </label>
 
-            <button className="inputBtn">Sign up</button>
+            <button className="inputBtn"
+            >Sign up</button>
         </form>
         
         </>

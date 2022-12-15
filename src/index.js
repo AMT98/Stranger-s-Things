@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './components/Login';
@@ -21,7 +21,7 @@ const App = () => {
         <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/home"><h2>HOME</h2></NavLink>
         <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/posts"><h2>POSTS</h2></NavLink>
         <h2>PROFILE</h2> 
-        <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/"><h2>LOGIN</h2></NavLink>
+        <NavLink exact activeClassName = "activeNavLinks" className="navLinks" to="/"><h2>LOGIN</h2></NavLink>
       </div>
     </header>
         <Switch>
@@ -40,7 +40,9 @@ const App = () => {
             url={url} />
           </Route>
           <Route path="/signup" >
-            <Signup />
+            <Signup 
+            url = {url}
+            />
           </Route>
         </Switch>
       </Router>             

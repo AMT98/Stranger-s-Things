@@ -35,7 +35,7 @@ const Login = () => {
             <label>
                 <input 
                     className='inputField'
-                    type="text" 
+                    type="password" 
                     placeholder= "Password*" 
                     maxLength="8"
                     required
