@@ -46,7 +46,7 @@
   cursor: pointer;
   transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
 }
-.inputBtn:hover, .createBtn:hover{
+.inputBtn:hover, .createBtn:hover, .checkedInput:hover{
   background-color: rgb(126, 168, 173);
   color: white;
   font-weight: bolder;
@@ -63,12 +63,12 @@
   color: white;
 }
 .navLinks:hover {
-  color: wheat;
+  color: aqua;
   transform: scale(1.1);
   transition: 0.3s;
 }
 .activeNavLinks {
-  color: wheat;
+  color: aqua;
 }
 .postHeader {
   display: flex;
@@ -93,8 +93,8 @@
   height: auto;
   border: 1px solid black;
   border-radius: 60px;
-  color: white;
   background-color: rgb(2, 65, 102);
+  cursor: pointer;
 }
 .postDetails p,h3 {
   color: rgb(137, 213, 248);
@@ -103,9 +103,10 @@
   color: aqua;
 }
 .postDetails:hover {
-  transform: scale(1.02);
-  transition: color .5s ease-in-out, box-shadow .7s ease-in-out;
-  cursor: pointer;
+  color: aqua;
+  box-shadow: 1px 1px 40px;
+  transform: scale(1.03);
+  transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
 }
 
 .postSearchBar {
@@ -146,4 +147,10 @@
 }
 .checkedInput {
   color: blue;
+  width: 50px;
+  height: 50px;
+}
+
+.optionLabel{
+  font-size: 40px
 }

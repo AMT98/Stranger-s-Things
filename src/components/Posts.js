@@ -56,6 +56,7 @@ const Posts = ({url}) => {
                 <label className="searchBtn">
                 <button className="inputBtn">Search</button>
                 </label>
+                <hr></hr>
                 <button className="inputBtn"
                 onClick={() => {
                     history.push('/add')
@@ -66,13 +67,14 @@ const Posts = ({url}) => {
         <hr></hr>
         {posts.map((post, i) => { 
             return (
-                <div key={i} className = "postContainer">
+            <div key={i} className = "postContainer">
                 <div className="postDetails">
                     <h1>{ post.title }</h1>
                     <p> { post.description }</p>
                     <h3> Price: { post.price }</h3>
                     <h3> Location: { post.location }</h3>
-                    <h3> Deliver: { post.willDeliver }</h3>
+                    <h3> Will Deliver: { post.willDeliver ? "True" : "False" }</h3>
+                    <h3> Post Active: { post.active ? "True" : "False" }</h3>
                 </div>
             </div>
         

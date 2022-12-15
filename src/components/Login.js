@@ -22,6 +22,8 @@ const Login = () => {
                     className='inputField'
                     type="text" 
                     placeholder= "Username*" 
+                    maxLength="10"
+                    required
                     value={userName} 
                     onChange={(e) => setUserName(e.target.value)}>
 
@@ -33,12 +35,14 @@ const Login = () => {
                     className='inputField'
                     type="text" 
                     placeholder= "Password*" 
+                    maxLength="8"
+                    required
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)}>
 
                 </input>
             </label>
-            <button className="inputBtn">Submit</button>
+            <button className="inputBtn">Sign in</button>
         </form>
         
         </>

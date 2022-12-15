@@ -35,7 +35,8 @@ const App = () => {
             url= {url}/>
           </Route>
           <Route path = "/add">
-            <Add />
+            <Add
+            url={url} />
           </Route>
         </Switch>
       </Router>             
