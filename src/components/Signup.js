@@ -5,8 +5,8 @@ const Signup = ({url}) => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
 // console.log(userName);
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const handleSubmit = async (event) => {
+        event.preventDefault()
         try {
             const response = await fetch(`${url}/users/register`, {
                 method : "POST",
@@ -21,7 +21,7 @@ const Signup = ({url}) => {
                 })
             }) 
             const data = await response.json()
-            // console.log(data.success) 
+            // console.log(data) 
         }
         catch(error){
             console.error(error)

@@ -5,6 +5,7 @@ const Posts = ({url}) => {
 
     const [posts, setPosts] = useState([])
     const [search, setSearch] = useState([])
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
 
     
     let history= useHistory()
@@ -12,14 +13,7 @@ const Posts = ({url}) => {
     const fetchPosts = async() => {
         
         const response = await fetch(`${url}/posts`
-        // , {
-            //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //         // 'Authorization': 'Bearer TOKEN_STRING_HERE'
-        //     },
-        //     body : JSON.stringify()
-        // }
+
         )
         const data = await response.json()
         setPosts(data.data.posts)
@@ -36,7 +30,7 @@ const Posts = ({url}) => {
     
     const handleDelete = async (postIdToDelete) => {
         console.log('postIdToDelete', postIdToDelete);
-        const response = await fetch(`${url}/${postIdToDelete}`, {
+        const response = await fetch(`${url}/posts/${postIdToDelete}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
