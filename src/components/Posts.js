@@ -54,19 +54,19 @@ const Posts = ({url}) => {
                 </input>
                 <label className="searchBtn">
                 <button className="inputBtn">Search</button>
-                </label>
 
                 <button className="inputBtn"
                 onClick={() => {
                     history.push('/add')
                 }}
                 >Add a post</button>
+                </label>
             </label>
         </form>
         <hr></hr>
         {posts.map((post, i) => { 
             return (
-            <div key={i} className = "postContainer">
+                <div key={i} className = "postContainer">
                 <div className="postDetails">
                     <h2>{ post.title }</h2>
                     <p> { post.description }</p>
@@ -74,6 +74,11 @@ const Posts = ({url}) => {
                     <h4> Location: { post.location }</h4>
                     <h4> Will Deliver: { post.willDeliver ? "True" : "False" }</h4>
                     <h4> Post Active: { post.active ? "True" : "False" }</h4>
+                    <label>
+
+                    {post.author.username === "Aswin" ? <button className="inputBtn">Delete</button> : null}
+                    
+                    </label>
                 </div>
             </div>
         

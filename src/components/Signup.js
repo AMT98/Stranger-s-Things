@@ -32,7 +32,7 @@ const Signup = ({url}) => {
     return (
         <>
         <form
-        onClick={handleSubmit}
+        onSubmit={handleSubmit}
         className='loginInput'>
             <h1>Sign up</h1>
             <label>

@@ -23,6 +23,8 @@ const Login = ({url}) => {
             }) 
             const data = await response.json()
             console.log(data) 
+            setUserName('')
+            setPassword('')
         }
         catch(error){
             console.error(error)
@@ -35,7 +37,7 @@ const Login = ({url}) => {
     return (
         <>
         <form
-        onClick={handleSubmit}
+        onSubmit={handleSubmit}
         className='loginInput'>
             <h1>LOG IN</h1>
             <label>
