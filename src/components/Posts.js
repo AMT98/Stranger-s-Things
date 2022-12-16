@@ -33,6 +33,24 @@ const Posts = ({url}) => {
         e.preventDefault()
         
         }
+    
+    const handleDelete = async (postIdToDelete) => {
+        console.log('postIdToDelete', postIdToDelete);
+        const response = await fetch(`${url}/${postIdToDelete}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        }) 
+        const data= await response.json()
+        console.log(data);
+        if(data) {
+            const newPosts = posts.filter(post => post._id !== postIdToDelete);
+            setPosts(newPosts)
+        }
+    }
+
     return (
         <>
         <div className="postHeader">
@@ -76,7 +94,11 @@ const Posts = ({url}) => {
                     <h4> Post Active: { post.active ? "True" : "False" }</h4>
                     <label>
 
-                    {post.author.username === "Aswin" ? <button className="inputBtn">Delete</button> : null}
+                    {post.author.username === "Aswin" ? 
+                    <button className="inputBtn"
+                    onClick={() => handleDelete(post._id)}
+                    >Delete</button>
+                     : null}
                     
                     </label>
                 </div>
