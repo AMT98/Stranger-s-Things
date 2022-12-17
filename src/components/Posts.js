@@ -87,14 +87,13 @@ const Posts = ({url}) => {
                     <h4> Price: { post.price }</h4>
                     <h4> Location: { post.location }</h4>
                     <h4> Will Deliver: { post.willDeliver ? "True" : "False" }</h4>
-                    <h4> Post Active: { post.active ? "True" : "False" }</h4>
                     <label>
 
                     {post.author.username === "Aswin" ? 
                     <button className="inputBtn"
                     onClick={() => handleDelete(post._id)}
                     >Delete</button>
-                     : null}
+                     : <button>View</button>}
                     
                     </label>
                 </div>
