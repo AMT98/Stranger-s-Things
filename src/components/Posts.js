@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom"
+import Messages from "./Messages";
 
 const Posts = ({url}) => {
 
@@ -92,8 +93,8 @@ const Posts = ({url}) => {
                     {post.author.username === "Aswin" ? 
                     <button className="inputBtn"
                     onClick={() => handleDelete(post._id)}
-                    >Delete</button>
-                     : <button>View</button>}
+                    >Delete</button> : 
+                    <Messages />}
                     
                     </label>
                 </div>

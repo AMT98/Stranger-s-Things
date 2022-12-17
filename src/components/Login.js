@@ -28,6 +28,9 @@ const Login = ({url}) => {
             setPassword('')
             if(data.success){
                 setDataSuccess(false)
+                alert('Login was successful!')
+            }else{
+                alert('Username or password you entered was incorrect!')
             }
         }
         catch(error){

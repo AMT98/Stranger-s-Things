@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Posts from './components/Posts';
 import Add from './components/Add';
 import Signup from './components/Signup';
+import Profile from './components/Profile';
 import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom"
 
 // signup is working for thursday work on redirecting to login page if its success
@@ -27,9 +28,13 @@ const App = () => {
         
         <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/home"><h2>HOME</h2></NavLink>
         <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/posts"><h2>POSTS</h2></NavLink>
-        <h2>PROFILE</h2> 
-        <NavLink exact activeClassName = "activeNavLinks" className="navLinks" to="/"><h2>LOGIN</h2></NavLink>
+        <NavLink activeClassName = "activeNavLinks" className="navLinks" to="/profile"><h2>PROFILE</h2></NavLink> 
       </div>
+        <NavLink exact title='LogIn' className="navLinks" to="/"><h2>
+        <span class="material-symbols-outlined">
+login
+</span>
+          </h2></NavLink>
     </header>
         <Switch>
           <Route  exact path = "/">
@@ -39,6 +44,10 @@ const App = () => {
           </Route>
           <Route path = "/home">
             <Home />
+          </Route>
+          <Route path = "/profile">
+            <Profile 
+            url = {url}/>
           </Route>
           <Route path = "/posts">
             <Posts 

@@ -1,9 +1,20 @@
 import React from 'react';
 
 
-const Messages = () => {
+const Messages = ({url}) => {
+
+    const handleMessage = (e) => {
+        e.preventDefault()
+    }
+
     return (
-        <h1>Messages</h1>
+        
+        <form onClick={handleMessage}>
+            <button
+            className="inputBtn"
+            >Send Message</button>
+        </form>
+        
     )
 }
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import Messages from './Messages';
 
-const Profile = () => {
+const Profile = ({url}) => {
     return (
-        <Messages />
+        <Messages 
+        url = {url}
+        />
     )
 }
 
