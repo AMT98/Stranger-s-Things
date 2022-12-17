@@ -6,6 +6,7 @@ const Login = ({url}) => {
     let history= useHistory()
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const [dataSuccess, setDataSuccess] = useState(true)
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -21,21 +22,24 @@ const Login = ({url}) => {
                     }
                 })
             }) 
-            const data = await response.json()
+            var data = await response.json()
             console.log(data) 
             setUserName('')
             setPassword('')
+            if(data.success){
+                setDataSuccess(false)
+            }
         }
         catch(error){
             console.error(error)
         }
         
     }
-
-
-
+    
+    
     return (
         <>
+        {dataSuccess ? 
         <form
         onSubmit={handleSubmit}
         className='loginInput'>
@@ -65,7 +69,12 @@ const Login = ({url}) => {
 
                 </input>
             </label>
-            <button className="inputBtn">Sign in</button>
+            <button 
+            className="inputBtn"
+            // onClick={() => {
+            //     history.push('/posts')
+            // }}
+            >Log in</button>
             <br></br>
             <br></br>
             <label className='optionLabel'>Don't have an account?</label>
@@ -76,7 +85,8 @@ const Login = ({url}) => {
             }}
             > Sign up!</button>
         </form>
-        
+        : <button>Log Out!</button>
+        }
         </>
     )
 }

@@ -5,7 +5,7 @@
   font-family: 'Orbitron', sans-serif;
 }
 body{
-  background: linear-gradient(rgba(1, 41, 41, 0.800), rgba(1, 41, 41, 0.800));
+  background: black;
 
 }
 
@@ -29,6 +29,7 @@ body{
   flex-direction: column;
   align-content: center;
   margin-top: 100px;
+  color: white;
 }
 .inputField {
   min-width: 20rem;
@@ -80,6 +81,7 @@ body{
   justify-content: center;
   font-size: 30px;
   letter-spacing: 2px;
+  color: white;
 }
 
 .postContainer {
@@ -88,7 +90,7 @@ body{
   flex-wrap: wrap;
 }
 .postDetails {
-  max-width: 350px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   margin: 20px;
@@ -97,15 +99,16 @@ body{
   height: auto;
   border: 1px solid black;
   border-radius: 60px;
-  background-color: rgb(2, 65, 102);
+  background-color: white;
   cursor: pointer;
   opacity: 0.8;
 }
 .postDetails p,h4 {
-  color: rgb(137, 213, 248);
+  color: black;
 }
 .postDetails h2 {
-  color: aqua;
+  color: black;
+  text-decoration: underline;
 }
 .postDetails:hover {
   color: aqua;
@@ -143,7 +146,7 @@ body{
   border-radius: 15px;
   font-size: 10px;
   color: rgb(0, 0, 0);
-  background-color: rgb(227, 238, 240);
+  background-color: rgba(123, 145, 147, 0.253);
   font-weight: bold;
 }
 .addForm h1 {

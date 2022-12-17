@@ -43,6 +43,8 @@ const Posts = ({url}) => {
             const newPosts = posts.filter(post => post._id !== postIdToDelete);
             setPosts(newPosts)
         }
+
+        
     }
 
     return (

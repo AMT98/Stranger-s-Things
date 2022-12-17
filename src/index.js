@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './components/Login';
@@ -15,7 +15,10 @@ import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-do
 // be able to add post 
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT"
+ 
 
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     <Router>
     <header className='header'>
