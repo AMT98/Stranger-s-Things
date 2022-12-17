@@ -67,6 +67,7 @@ body{
 .navLinks {
   text-decoration: none;
   color: black;
+  margin: 0px 30px;
 }
 .navLinks:hover {
   transform: scale(1.1);
@@ -167,3 +168,7 @@ body{
   font-size: 20px
 }
 
+.profileNav{
+  list-style: none;
+  margin-right: 5rem;
+}

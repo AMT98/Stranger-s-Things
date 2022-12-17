@@ -1,11 +1,16 @@
 import React from 'react';
-import Messages from './Messages';
 
 const Profile = ({url}) => {
     return (
-        <Messages 
-        url = {url}
-        />
+        <>
+        <div>
+            <h1>Inbox</h1>  
+        </div>
+
+        <div>
+            <h1>Sent</h1>
+        </div>
+        </>
     )
 }
 
