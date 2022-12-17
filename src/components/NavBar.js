@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Collapse,
   Navbar,
@@ -19,11 +19,16 @@ const NavBar = (args) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const [token, setToken] = useState('')
+  console.log(localStorage.getItem('token'));
+  useEffect(() => {
+      setToken(localStorage.getItem('token'))
+  },[])
 
   return (
     <div>
       <Navbar expand={"xl"}>
-        <NavbarBrand href="/">Stranger's Things</NavbarBrand>
+        <NavbarBrand href={token? '/posts' : '/'}>Stranger's Things</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>

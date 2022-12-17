@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useHistory} from "react-router-dom"
 
 const Login = ({url}) => {
@@ -7,6 +7,10 @@ const Login = ({url}) => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [dataSuccess, setDataSuccess] = useState(true)
+    const [token, setToken] = useState('')
+    useEffect(() => {
+        setToken(localStorage.getItem('token'))
+    },[])
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -28,6 +32,7 @@ const Login = ({url}) => {
             setPassword('')
             if(data.success){
                 setDataSuccess(false)
+                localStorage.setItem('token', data.data.token)
                 alert('Login was successful!')
             }else{
                 alert('Username or password you entered was incorrect!')
@@ -42,7 +47,7 @@ const Login = ({url}) => {
     
     return (
         <>
-        {dataSuccess ? 
+        {!token ? 
         <form
         onSubmit={handleSubmit}
         className='loginInput'>

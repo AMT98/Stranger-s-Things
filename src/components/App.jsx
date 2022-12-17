@@ -36,9 +36,9 @@ const App = () => {
         <Route path = "/posts">
           <Posts url= {url} />
         </Route>
-        <Route path = "/add">
+        {/* <Route path = "/add">
           <Add url={url} />
-        </Route>
+        </Route> */}
           <Route path="/signup" >
           <Signup url = {url} />
         </Route>

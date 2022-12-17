@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {useHistory} from "react-router-dom"
+import {useHistory, Route, Redirect} from "react-router-dom"
+import Popup from "./Popup";
 import Messages from "./Messages";
+import Add from "./Add";
 
 const Posts = ({url}) => {
 
     const [posts, setPosts] = useState([])
     const [search, setSearch] = useState([])
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
+    const [token, setToken] = useState('')
+    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
 
     
     let history= useHistory()
@@ -23,6 +26,7 @@ const Posts = ({url}) => {
  }
     useEffect(() => {
         fetchPosts();
+        setToken(localStorage.getItem('token'))
     },[]);
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -47,6 +51,8 @@ const Posts = ({url}) => {
 
         
     }
+    const handleAddPost = () => token ? history.push('/add') : history.push('/')
+    
 
     return (
         <>
@@ -70,11 +76,14 @@ const Posts = ({url}) => {
                 <label className="searchBtn">
                 <button className="inputBtn">Search</button>
 
-                <button className="inputBtn"
-                onClick={() => {
-                    history.push('/add')
-                }}
-                >Add a post</button>
+                {/* <button className="inputBtn"
+                // onClick={handleAddPost}
+                >Add a post</button> */}
+                {/* <Popup btnTxt="Add Post" children={<Add />} /> */}
+                <Add setData={setPosts}
+                    data = {posts}
+                 />
+                
                 </label>
             </label>
         </form>
@@ -90,7 +99,7 @@ const Posts = ({url}) => {
                     <h4> Will Deliver: { post.willDeliver ? "True" : "False" }</h4>
                     <label>
 
-                    {post.author.username === "Aswin" ? 
+                    {post.author.username === "Aswin" && token ? 
                     <button className="inputBtn"
                     onClick={() => handleDelete(post._id)}
                     >Delete</button> : 

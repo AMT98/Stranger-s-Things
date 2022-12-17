@@ -1,19 +1,26 @@
 import React, {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom"
+import Popup from "./Popup";
 
 
-const Add = ({url}) => {
+const Add = ({ setData , data}) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
     const [location, setLocation] = useState('')
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
+    const [token, setToken] = useState('')
+    // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
     let history= useHistory()
 
+    useEffect(() => {
+        setToken(localStorage.getItem('token'))
+    },[])
 
 
     const handleSubmit = async(e) => {
-            e.preventDefault()
+        console.log("submitted");
+        e.preventDefault()
+        const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT"
         try {
             const response = await fetch(`${url}/posts`
             , {
@@ -32,9 +39,11 @@ const Add = ({url}) => {
                 })
             }
             )
-            const data = await response.json()
-            console.log(data);
-            history.push('/posts')
+            const newData = await response.json()
+            console.log(newData);
+            console.log(...data, newData.data.post);
+            setData(...data, newData.data.post)
+            // history.push('/posts')
 
         }
         catch(error){
@@ -44,10 +53,14 @@ const Add = ({url}) => {
 
     
     return (
-        <>
+        <Popup 
+            btnTxt="Add Post"
+            modalTitle="Add Post"
+            handleSubmit={handleSubmit}
+            submitBtnTxt="Create"
+        >
         <form
-        className='addForm'
-        onSubmit={handleSubmit}>
+        className='addForm'>
             <h1>Add New Post</h1>
             <label>
                 <input 
@@ -105,11 +118,11 @@ const Add = ({url}) => {
                     <option value="no">No</option>
                 </select>
             </label>
-            <button 
+            {/* <button 
             className="addInput createBtn"
-            >CREATE</button>
+            >CREATE</button> */}
         </form>
-        </>
+        </Popup>
     )
 }
 
