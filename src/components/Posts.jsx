@@ -63,6 +63,9 @@ const Posts = ({url}) => {
         <form
         className="postSearchBar" 
         onSubmit={handleSubmit}>
+                <Add setData={setPosts}
+                    data = {posts}
+                 />
         
             <label>
                 <input
@@ -80,9 +83,6 @@ const Posts = ({url}) => {
                 // onClick={handleAddPost}
                 >Add a post</button> */}
                 {/* <Popup btnTxt="Add Post" children={<Add />} /> */}
-                <Add setData={setPosts}
-                    data = {posts}
-                 />
                 
                 </label>
             </label>
