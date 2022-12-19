@@ -33,6 +33,7 @@ const Login = ({url}) => {
             if(data.success){
                 setDataSuccess(false)
                 localStorage.setItem('token', data.data.token)
+                history.push('/home')
                 alert('Login was successful!')
             }else{
                 alert('Username or password you entered was incorrect!')

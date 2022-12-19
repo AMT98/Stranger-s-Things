@@ -63,10 +63,12 @@ const Posts = ({url}) => {
         <form
         className="postSearchBar" 
         onSubmit={handleSubmit}>
+                {token ? 
                 <Add setData={setPosts}
                     data = {posts}
                  />
-        
+                 : null
+                }
             <label>
                 <input
                 className="inputField"
