@@ -74,19 +74,20 @@ const Posts = ({url}) => {
                  : null
                 }
             <label>
-                    {/* <span class="material-symbols-outlined">
-                        search
-                    </span> */}
                 <input
-                className="inputField"
+                className="searchBar"
                 type="search"
                 placeholder = "Search"
                 value={searchTerm}
                 onChange= {handleSearch}
                 >
                 </input>
-                <label className="searchBtn">
-                <button className="inputBtn">Enter</button>
+                <label>
+                <button  className="searchBtn">
+                <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
 
                 {/* <button className="inputBtn"
                 // onClick={handleAddPost}
@@ -97,7 +98,7 @@ const Posts = ({url}) => {
             </label>
         </form>
         <hr></hr>
-        {posts.filter((value) => {
+        {posts.filter((value => {
             if(searchTerm === ''){
                 return value
             }else if(value.title.toLowerCase().includes(searchTerm.toLowerCase())){
@@ -107,7 +108,7 @@ const Posts = ({url}) => {
             }else if(value.location.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
                 return value
             }
-        }).map((post, i) => { 
+        })).map((post, i) => { 
             return (
                 <div key={i} className = "postContainer">
                 <div className="postDetails">

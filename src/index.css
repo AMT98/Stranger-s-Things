@@ -38,6 +38,13 @@ body{
   border: 1px solid black;
   border-radius: 10px;
 }
+.searchBar {
+  min-width: 30rem;
+  padding: 15px;
+  margin: 10px 0px ;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
 .inputBtn, .createBtn {
   min-height: 40px;
   min-width: 130px;
@@ -136,6 +143,14 @@ body{
   justify-content: center;
   display:inline-flex;
   gap: 20px;
+  background-color: white;
+  padding: 15px;
+  position: relative;
+  top: 6px;
+  color: black;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-left-color: transparent;
 }
 .addForm {
   display: flex;
