@@ -14,19 +14,27 @@ import {
   NavbarText,
 } from 'reactstrap';
 import { NavLink, useHistory } from "react-router-dom";
-import Login from './Login';
+
 
 const NavBar = (args) => {
-  const [isOpen, setIsOpen] = useState(false);
   let history= useHistory()
+  const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [token, setToken] = useState('')
   useEffect(() => {
       setToken(localStorage.getItem('token'))
-  },[])
-  const handleLogin = () => {
-    history.push('/')
-  }
+    },[])
+    const handleLogin = () => {
+      history.push('/')
+    }
+    const handleLogout = () => {
+      localStorage.removeItem('token')
+      history.push('/')
+    }
+    const handleSignup = () => {
+      history.push('/signup')
+    }
+ 
 
   return (
     <div>
@@ -72,12 +80,18 @@ const NavBar = (args) => {
                   <DropdownItem
                   
                   >{token ? 
-                  <button>Log Out</button> 
+                  <button
+                  className='logInLogOutBtn'
+                  onClick={handleLogout}
+                  >{token ? 'Log Out' : 'Log In'}</button> 
                   : <button
                   onClick={handleLogin}
-                  >Log In</button>}
+                  className='logInLogOutBtn'
+                  >{token ? 'Log Out' : 'Log In'}</button>}
                   </DropdownItem>
-                  <DropdownItem>Sign Up</DropdownItem>
+                  <DropdownItem
+                  onClick={handleSignup}
+                  >Sign Up</DropdownItem>
                 </>
                 ): (
                   null

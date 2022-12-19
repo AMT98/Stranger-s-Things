@@ -7,7 +7,7 @@ import Add from "./Add";
 const Posts = ({url}) => {
 
     const [posts, setPosts] = useState([])
-    const [search, setSearch] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
     const [token, setToken] = useState('')
     // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
 
@@ -48,10 +48,14 @@ const Posts = ({url}) => {
             const newPosts = posts.filter(post => post._id !== postIdToDelete);
             setPosts(newPosts)
         }
-
-        
     }
-    const handleAddPost = () => token ? history.push('/add') : history.push('/')
+
+    const handleSearch = (e) => {
+        return (
+            setSearchTerm(e.target.value)
+        )
+    }
+    
     
 
     return (
@@ -70,16 +74,19 @@ const Posts = ({url}) => {
                  : null
                 }
             <label>
+                    {/* <span class="material-symbols-outlined">
+                        search
+                    </span> */}
                 <input
                 className="inputField"
-                type="text"
+                type="search"
                 placeholder = "Search"
-                value={search}
-                onChange= {(e) => setSearch(e.target.value)}
+                value={searchTerm}
+                onChange= {handleSearch}
                 >
                 </input>
                 <label className="searchBtn">
-                <button className="inputBtn">Search</button>
+                <button className="inputBtn">Enter</button>
 
                 {/* <button className="inputBtn"
                 // onClick={handleAddPost}
@@ -90,7 +97,17 @@ const Posts = ({url}) => {
             </label>
         </form>
         <hr></hr>
-        {posts.map((post, i) => { 
+        {posts.filter((value) => {
+            if(searchTerm === ''){
+                return value
+            }else if(value.title.toLowerCase().includes(searchTerm.toLowerCase())){
+                return value
+            }else if(value.description.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
+                return value
+            }else if(value.location.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
+                return value
+            }
+        }).map((post, i) => { 
             return (
                 <div key={i} className = "postContainer">
                 <div className="postDetails">

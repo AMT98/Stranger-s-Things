@@ -117,7 +117,7 @@ const Add = ({ setData , data}) => {
             >
             <br />
                 Will Deliver?
-                <select className='checkedInput'>
+                <select>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
