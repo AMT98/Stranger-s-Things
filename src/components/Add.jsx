@@ -43,6 +43,10 @@ const Add = ({ setData , data}) => {
             console.log(newData);
             console.log(...data, newData.data.post);
             setData([...data, newData.data.post])
+            setTitle('')
+            setDescription('')
+            setPrice('')
+            setLocation('')
             // history.push('/posts')
 
         }

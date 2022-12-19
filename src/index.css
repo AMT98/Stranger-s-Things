@@ -144,18 +144,15 @@ body{
   
 }
 .addInput {
-  padding: 40px;
+  padding: 30px;
   margin: 10px;
-  width: 500px;
+  width: 26rem;
   border-radius: 15px;
-  font-size: 10px;
-  color: rgb(0, 0, 0);
-  background-color: rgba(123, 145, 147, 0.253);
-  font-weight: bold;
+  font-size: 15px;
 }
 .addForm h1 {
   font-size: 20px;
-  margin: 35px;
+  margin: 10px;
   letter-spacing: 2px;
 }
 .checkedInput {
