@@ -42,7 +42,7 @@ const Add = ({ setData , data}) => {
             const newData = await response.json()
             console.log(newData);
             console.log(...data, newData.data.post);
-            setData(...data, newData.data.post)
+            setData([...data, newData.data.post])
             // history.push('/posts')
 
         }
