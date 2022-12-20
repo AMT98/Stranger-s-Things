@@ -3,18 +3,18 @@ import {useHistory} from "react-router-dom"
 import Popup from "./Popup";
 
 
-const Add = ({ setData , data}) => {
+const Add = ({ setData , data, token}) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
     const [location, setLocation] = useState('')
-    const [token, setToken] = useState('')
+    // const [token, setToken] = useState('')
     // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
     let history= useHistory()
 
-    useEffect(() => {
-        setToken(localStorage.getItem('token'))
-    },[])
+    // useEffect(() => {
+    //     setToken(localStorage.getItem('token'))
+    // },[])
 
 
     const handleSubmit = async(e) => {

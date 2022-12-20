@@ -2,19 +2,25 @@ import React, {useEffect, useState} from "react";
 import Messages from "./Messages";
 import Add from "./Add";
 
-const Posts = ({url}) => {
+const Posts = ({url, token}) => {
 
     const [posts, setPosts] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
-    const [token, setToken] = useState('')
+    // const [token, setToken] = useState('')
     // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
 
     
     
     const fetchPosts = async() => {
         
-        const response = await fetch(`${url}/posts`
-
+        const response = await fetch(`${url}/posts`,{
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        }
+            
         )
         const data = await response.json()
         setPosts(data.data.posts)
@@ -23,7 +29,9 @@ const Posts = ({url}) => {
  }
     useEffect(() => {
         fetchPosts();
-        setToken(localStorage.getItem('token'))
+        // setToken(localStorage.getItem('token'))
+        // console.log(localStorage.getItem('token'));
+        localStorage.getItem('token')
     },[]);
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -67,6 +75,7 @@ const Posts = ({url}) => {
                 {token ? 
                 <Add setData={setPosts}
                     data = {posts}
+                    token = {token}
                  />
                  : null
                 }
@@ -116,7 +125,7 @@ const Posts = ({url}) => {
                     <h4> Will Deliver: { post.willDeliver ? "True" : "False" }</h4>
                     <label>
 
-                    {post.author.username === "Aswin" && token ? 
+                    {post.isAuthor ? 
                     <button className="inputBtn"
                     onClick={() => handleDelete(post._id)}
                     >Delete</button> : 

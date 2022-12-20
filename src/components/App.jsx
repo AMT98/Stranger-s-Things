@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Login from './Login';
 import Home from './Home';
 import Posts from './Posts';
@@ -16,16 +16,21 @@ import Messages from './Messages';
 // be able to add post 
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT"
- 
+  const [token, setToken] = useState('')
 
-
+useEffect(() => {
+  setToken(localStorage.getItem('token'))
+},[])
   // const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     <>
       <NavBar />
       <Switch>
         <Route  exact path = "/">
-          <Login url = {url} />
+          <Login 
+          url = {url}
+          token = {token}
+          />
         </Route>
         <Route path = "/home">
           <Home />
@@ -34,10 +39,16 @@ const App = () => {
           <Profile url = {url} />
         </Route>
         <Route path = "/posts">
-          <Posts url= {url} />
+          <Posts 
+          url= {url}
+          token = {token}
+          />
         </Route>
           <Route path="/signup" >
-          <Signup url = {url} />
+          <Signup 
+          url = {url}
+          token = {token}
+          />
         </Route>
       </Switch>
 

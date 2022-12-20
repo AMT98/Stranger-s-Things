@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from "react-router-dom"
 
-const Login = ({url}) => {
+const Login = ({url, token}) => {
 
     let history= useHistory()
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [dataSuccess, setDataSuccess] = useState(true)
-    const [token, setToken] = useState('')
-    useEffect(() => {
-        setToken(localStorage.getItem('token'))
-    },[])
+    // const [token, setToken] = useState('')
+    // useEffect(() => {
+    //     setToken(localStorage.getItem('token'))
+    // },[])
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {

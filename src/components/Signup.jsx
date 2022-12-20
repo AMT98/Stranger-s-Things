@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import {useHistory} from "react-router-dom"
 
-const Signup = ({url}) => {
+const Signup = ({url, token}) => {
 
 
     let history= useHistory()
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [dataSuccess, setDataSuccess] = useState(false)
-    const [token, setToken] = useState('')
+    // const [token, setToken] = useState('')
 // console.log(userName);
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -26,15 +26,16 @@ const Signup = ({url}) => {
                 })
             }) 
             const data = await response.json()
-            console.log(data.data.token)
+            console.log(data)
             if(data.success){
-
+                setUserName('')
+                setPassword('')
                 setDataSuccess(true)
             }
             
             localStorage.setItem('token', data.data.token)
-            setToken(localStorage.getItem('token'))
-            console.log(token);
+            // setToken(localStorage.getItem('token'))
+            // console.log(token);
         }
         catch(error){
             console.error(error)
@@ -76,9 +77,9 @@ const Signup = ({url}) => {
 
             <button className="inputBtn"
                 onClick={() => {
-                    if(dataSuccess){
-
-                        history.push('/')
+                    if(token){
+                        alert('You have successfully signed up!')
+                        history.push('/posts')
                     }
                 }}
             >Sign up</button>
