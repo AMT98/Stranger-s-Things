@@ -17,9 +17,10 @@ import Messages from './Messages';
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT"
   const [token, setToken] = useState('')
-
+  const [isAuthor, setIsAuthor] = useState('')
 useEffect(() => {
   setToken(localStorage.getItem('token'))
+  setIsAuthor(localStorage.getItem('authorid'))
 },[])
   // const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
@@ -42,6 +43,7 @@ useEffect(() => {
           <Posts 
           url= {url}
           token = {token}
+          isAuthor = {isAuthor}
           />
         </Route>
           <Route path="/signup" >

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Messages from "./Messages";
 import Add from "./Add";
 
-const Posts = ({url, token}) => {
+const Posts = ({url, token, isAuthor}) => {
 
     const [posts, setPosts] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
@@ -31,7 +31,10 @@ const Posts = ({url, token}) => {
         fetchPosts();
         // setToken(localStorage.getItem('token'))
         // console.log(localStorage.getItem('token'));
-        localStorage.getItem('token')
+        if(posts.isAuthor === false){
+            localStorage.getItem('authorid')
+        }
+        // console.log(localStorage.getItem('authorid'));
     },[]);
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -125,7 +128,7 @@ const Posts = ({url, token}) => {
                     <h4> Will Deliver: { post.willDeliver ? "True" : "False" }</h4>
                     <label>
 
-                    {post.isAuthor ? 
+                    {post.author._id === isAuthor  ? 
                     <button className="inputBtn"
                     onClick={() => handleDelete(post._id)}
                     >Delete</button> : 

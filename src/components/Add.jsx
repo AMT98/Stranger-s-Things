@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {useHistory} from "react-router-dom"
+import React, {useState} from "react";
+// import {useHistory} from "react-router-dom"
 import Popup from "./Popup";
 
 
@@ -10,7 +10,7 @@ const Add = ({ setData , data, token}) => {
     const [location, setLocation] = useState('')
     // const [token, setToken] = useState('')
     // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
-    let history= useHistory()
+    // let history= useHistory()
 
     // useEffect(() => {
     //     setToken(localStorage.getItem('token'))
@@ -48,6 +48,8 @@ const Add = ({ setData , data, token}) => {
             setPrice('')
             setLocation('')
             // history.push('/posts')
+            console.log(newData);
+            localStorage.setItem('authorid', newData.data.post.author._id)
 
         }
         catch(error){
