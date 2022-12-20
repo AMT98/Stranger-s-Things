@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Login from './Login';
 import Home from './Home';
 import Posts from './Posts';
-import Add from './Add';
 import Signup from './Signup';
 import Profile from './Profile';
-import {  Route, Switch, NavLink } from "react-router-dom";
+import {  Route, Switch} from "react-router-dom";
 import NavBar from './NavBar';
+import Messages from './Messages';
 
 
 // signup is working for thursday work on redirecting to login page if its success
@@ -19,7 +19,7 @@ const App = () => {
  
 
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  // const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     <>
       <NavBar />
@@ -36,9 +36,6 @@ const App = () => {
         <Route path = "/posts">
           <Posts url= {url} />
         </Route>
-        {/* <Route path = "/add">
-          <Add url={url} />
-        </Route> */}
           <Route path="/signup" >
           <Signup url = {url} />
         </Route>

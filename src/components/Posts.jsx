@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-import {useHistory, Route, Redirect} from "react-router-dom"
-import Popup from "./Popup";
 import Messages from "./Messages";
 import Add from "./Add";
 
@@ -12,7 +10,6 @@ const Posts = ({url}) => {
     // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
 
     
-    let history= useHistory()
     
     const fetchPosts = async() => {
         
@@ -123,7 +120,12 @@ const Posts = ({url}) => {
                     <button className="inputBtn"
                     onClick={() => handleDelete(post._id)}
                     >Delete</button> : 
-                    <Messages />}
+                    <Messages 
+                    posts={posts}
+                    url={url}
+                    postId= {post._id}
+                    token={token}
+                    />}
                     
                     </label>
                 </div>

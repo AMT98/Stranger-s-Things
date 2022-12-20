@@ -44,6 +44,7 @@ body{
   margin: 10px 0px ;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  border-right-color: transparent;
 }
 .inputBtn, .createBtn {
   min-height: 40px;
@@ -77,13 +78,12 @@ body{
   margin: 0px 30px;
 }
 .navLinks:hover {
-  transform: scale(1.1);
-  transition: 0.3s;
+  color: rgb(124, 114, 114);
 }
 .activeNavLinks {
-  color: white;
+  color: black;
   padding: 2.5px;
-  background-color: black;
+  background-color: grey;
   border-radius: 5px;
 }
 .postHeader {
@@ -123,7 +123,7 @@ body{
   text-decoration: underline;
 }
 .postDetails:hover {
-  color: aqua;
+  color: rgb(255, 1, 1);
   box-shadow: 1px 1px 10px;
   transform: scale(1.03);
   transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
@@ -150,7 +150,7 @@ body{
   color: black;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-left-color: transparent;
+  /* border-left-color: transparent; */
 }
 .addForm {
   display: flex;
