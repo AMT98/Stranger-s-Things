@@ -26,9 +26,8 @@ const Home = ({ url }) => {
   useEffect(() => {
     handleProfile();
   }, []);
-  // console.log(messages);
+  
   return (
-    // {messages.map(message => {
     <>
       <h1>Welcome to Stranger's Things!</h1>
       <h3>Logged in as: {userName}</h3>

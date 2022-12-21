@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Messages from "./Messages";
 import Add from "./Add";
+import Edit from "./Edit";
 
 const Posts = ({url, token, isAuthor}) => {
 
@@ -130,9 +131,13 @@ const Posts = ({url, token, isAuthor}) => {
                     <label>
 
                     {post.author._id === isAuthor  ? 
+                        <>
                     <button className="inputBtn"
                     onClick={() => handleDelete(post._id)}
-                    >Delete</button> : 
+                    >Delete</button>
+                    <Edit />
+                        </>
+                     : 
                     <Messages 
                     posts={posts}
                     url={url}
