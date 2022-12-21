@@ -4,14 +4,14 @@ import Popup from "./Popup";
 const Messages = ({ url, posts, postId, token }) => {
   const [title, setTitle] = useState("");
 
-const handleMessage = async (e) => {
-      e.preventDefault();
+  const handleMessage = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch(`${url}/posts/${postId}/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           message: {

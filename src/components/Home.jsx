@@ -26,7 +26,7 @@ const Home = ({ url }) => {
   useEffect(() => {
     handleProfile();
   }, []);
-  
+
   return (
     <>
       <h1>Welcome to Stranger's Things!</h1>

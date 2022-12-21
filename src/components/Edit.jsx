@@ -60,7 +60,7 @@ const Edit = ({ setData , data, token}) => {
     
     return (
         <Popup 
-            btnTxt="Edit Post"
+            btnTxt="Edit The Post"
             modalTitle="Edit Post"
             handleSubmit={handleSubmit}
             submitBtnTxt="Edit"

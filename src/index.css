@@ -56,7 +56,8 @@ body{
   border-color: gray;
   background-color: white;
   letter-spacing: 1px;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: bolder;
   cursor: pointer;
   transition: color .5s ease-in-out, box-shadow .5s ease-in-out;
 }
@@ -189,4 +190,16 @@ body{
 .logInLogOutBtn {
   border-color: transparent;
   background-color: transparent;
+}
+.btn-danger{
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.delete-edit-btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
