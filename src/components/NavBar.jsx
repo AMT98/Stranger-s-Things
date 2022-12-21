@@ -28,6 +28,7 @@ const NavBar = (args) => {
     }
     const handleLogout = () => {
       localStorage.removeItem('token')
+      localStorage.removeItem('authorid')
       history.push('/')
     }
     const handleSignup = () => {

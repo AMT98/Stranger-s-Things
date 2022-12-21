@@ -9,17 +9,13 @@ import NavBar from './NavBar';
 import Messages from './Messages';
 
 
-// signup is working for thursday work on redirecting to login page if its success
-//learn about local storage
-// work login page change it to log out button and work that 
-// then create profile page 
-// be able to add post 
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT"
   const [token, setToken] = useState('')
   const [isAuthor, setIsAuthor] = useState('')
 useEffect(() => {
   setToken(localStorage.getItem('token'))
+  localStorage.getItem('token')
   setIsAuthor(localStorage.getItem('authorid'))
 },[])
   // const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -34,10 +30,16 @@ useEffect(() => {
           />
         </Route>
         <Route path = "/home">
-          <Home />
+          <Home 
+          url= {url}
+          token = {token}
+          />
         </Route>
         <Route path = "/profile">
-          <Profile url = {url} />
+          <Profile 
+          url = {url}
+          token = {token}
+          />
         </Route>
         <Route path = "/posts">
           <Posts 

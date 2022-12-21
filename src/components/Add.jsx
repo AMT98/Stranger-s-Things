@@ -49,7 +49,7 @@ const Add = ({ setData , data, token}) => {
             setLocation('')
             // history.push('/posts')
             console.log(newData);
-            localStorage.setItem('authorid', newData.data.post.author._id)
+            
 
         }
         catch(error){

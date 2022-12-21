@@ -94,7 +94,7 @@ const Login = ({url, token}) => {
             }}
             > Sign up!</button>
         </form>
-        : <button>Log Out!</button>
+        : null
         }
         </>
     )

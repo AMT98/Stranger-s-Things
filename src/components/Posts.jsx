@@ -27,13 +27,14 @@ const Posts = ({url, token, isAuthor}) => {
         console.log(data);
 
  }
+ 
     useEffect(() => {
         fetchPosts();
         // setToken(localStorage.getItem('token'))
         // console.log(localStorage.getItem('token'));
-        if(posts.isAuthor === false){
+        
             localStorage.getItem('authorid')
-        }
+        
         // console.log(localStorage.getItem('authorid'));
     },[]);
     const handleSubmit = (e) => {
@@ -69,7 +70,7 @@ const Posts = ({url, token, isAuthor}) => {
     return (
         <>
         <div className="postHeader">
-                <h1>POSTS</h1>
+                <h1>POSTS </h1>
         </div>
         <hr></hr>
         <form
