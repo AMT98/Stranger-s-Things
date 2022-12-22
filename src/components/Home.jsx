@@ -40,10 +40,13 @@ const Home = ({ url }) => {
       <div>
         {messages.map((message, i) => {
           return (
-            <div key={i} className="postContainer">
-              <h4>{i}. Post title:- {message.post.title}</h4>
-              <p>- Your Message: {message.content}</p>
-              <hr></hr>
+            <div key={i} className="postContainer msgContainer">
+              <div className="postDetails msgDetails">
+                <h4>
+                  {i}. Post title:- {message.post.title}
+                </h4>
+                <p>- Your Message: {message.content}</p>
+              </div>
             </div>
           );
         })}

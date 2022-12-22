@@ -208,3 +208,17 @@ body{
   background-color: black;
   color: white;
 }
+.msgDetails {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 10px;
+}
+
+.msgContainer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
