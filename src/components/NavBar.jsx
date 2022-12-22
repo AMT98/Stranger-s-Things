@@ -28,7 +28,7 @@ const NavBar = (args) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("authorid");
-    history.push("/");
+    history.push("/home");
   };
   const handleSignup = () => {
     history.push("/signup");
@@ -37,7 +37,7 @@ const NavBar = (args) => {
   return (
     <div>
       <Navbar expand={"xl"}>
-        <NavbarBrand href={token ? "/posts" : "/"}>
+        <NavbarBrand href={localStorage.getItem('token') ? "/posts" : "/"}>
           Stranger's Things
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -68,20 +68,24 @@ const NavBar = (args) => {
               PROFILE
             </DropdownToggle>
             <DropdownMenu start>
+              {localStorage.getItem('token') ?
+              <>
               <DropdownItem>Inbox</DropdownItem>
               <DropdownItem>Sent Messages</DropdownItem>
+              </>
+              : null} 
               <DropdownItem divider />
               {/* change true to state value that determines if the user is logged in or not */}
               {true ? (
                 <>
                   <DropdownItem>
-                    {token ? (
+                    {localStorage.getItem('token') ? (
                       <button className="logInLogOutBtn" onClick={handleLogout}>
-                        {token ? "Log Out" : "Log In"}
+                        log Out
                       </button>
                     ) : (
                       <button onClick={handleLogin} className="logInLogOutBtn">
-                        {token ? "Log Out" : "Log In"}
+                        Log In
                       </button>
                     )}
                   </DropdownItem>

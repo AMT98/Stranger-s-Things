@@ -58,7 +58,7 @@ const Add = ({ setData, data, token }) => {
       submitBtnTxt="Create"
     >
       <form className="addForm">
-        <h1>Add New Post</h1>
+        <h1>Add A New Post</h1>
         <label>
           <input
             className="addInput"

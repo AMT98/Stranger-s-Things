@@ -29,15 +29,20 @@ const Home = ({ url }) => {
 
   return (
     <>
-      <h1>Welcome to Stranger's Things!</h1>
-      <h3>Logged in as: {userName}</h3>
-      <button>View Marketplace</button>
+      <div className="homeHeader">
+        <h1>Welcome to Stranger's Things!</h1>
+        <h3>Logged in as: {userName}</h3>
+        <button className="inputBtn">View Marketplace</button>
+        <hr></hr>
+        <h1>Sent Messages</h1>
+        <hr></hr>
+      </div>
       <div>
         {messages.map((message, i) => {
           return (
             <div key={i} className="postContainer">
-              <h4>Post title: {message.post.title}</h4>
-              <p>Your Message: {message.content}</p>
+              <h4>{i}. Post title:- {message.post.title}</h4>
+              <p>- Your Message: {message.content}</p>
               <hr></hr>
             </div>
           );

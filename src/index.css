@@ -103,13 +103,13 @@ body{
   margin-left: 40px;
 }
 .postDetails {
-  width: 400px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   margin: 10px;
   gap: 20px;
   padding: 30px;
-  min-height: 500px;
+  min-height: 600px;
   border: 1px solid black;
   border-radius: 60px;
   background-color: white;
@@ -192,14 +192,19 @@ body{
   background-color: transparent;
 }
 .btn-danger{
-  color: white;
-  background-color: black;
   border-radius: 20px;
-  margin-bottom: 10px;
 }
 .delete-edit-btn{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.homeHeader{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
 }

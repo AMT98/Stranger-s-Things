@@ -14,7 +14,7 @@ const Posts = ({ url, token, isAuthor }) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`,
       },
     });
     const data = await response.json();
@@ -41,7 +41,7 @@ const Posts = ({ url, token, isAuthor }) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`,
       },
     });
     const data = await response.json();
@@ -63,7 +63,7 @@ const Posts = ({ url, token, isAuthor }) => {
       </div>
       <hr></hr>
       <form className="postSearchBar" onSubmit={handleSubmit}>
-        {token ? <Add setData={setPosts} data={posts} token={token} /> : null}
+        {localStorage.getItem('token') ? <Add setData={setPosts} data={posts} token={token} /> : null}
         <label>
           <input
             className="searchBar"
@@ -119,7 +119,7 @@ const Posts = ({ url, token, isAuthor }) => {
                 <label>
                   {post.author._id === isAuthor ? (
                     <div className="delete-edit-btn">
-                      <Edit setData={setPosts} data={posts} token={token} />
+                      <Edit setData={setPosts} data={posts} token={token} postId={post._id}/>
 
                       <button
                         className="inputBtn"
