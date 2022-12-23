@@ -12,12 +12,12 @@ const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT";
   const [token, setToken] = useState("");
   const [isAuthor, setIsAuthor] = useState("");
+  // const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
     setToken(localStorage.getItem("token"));
     localStorage.getItem("token");
     setIsAuthor(localStorage.getItem("authorid"));
   }, []);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     <>
       <NavBar />

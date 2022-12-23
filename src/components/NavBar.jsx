@@ -14,14 +14,12 @@ import {
 } from "reactstrap";
 import { NavLink, useHistory } from "react-router-dom";
 
-const NavBar = (args) => {
+const NavBar = () => {
   let history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const [token, setToken] = useState("");
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, []);
+  // const [token, setToken] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => {
     history.push("/");
   };
@@ -31,13 +29,23 @@ const NavBar = (args) => {
     history.push("/home");
   };
   const handleSignup = () => {
+    // console.log(token);
     history.push("/signup");
   };
-
+  //   setToken(localStorage.getItem("token"));
+  //   if(localStorage.getItem('token')){
+  //     setIsLoggedIn(true)
+  //   }
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+  console.log(isLoggedIn);
   return (
     <div>
       <Navbar expand={"xl"}>
-        <NavbarBrand href={localStorage.getItem('token') ? "/posts" : "/"}>
+        <NavbarBrand href={localStorage.getItem("token") ? "/posts" : "/"}>
           Stranger's Things
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -68,30 +76,32 @@ const NavBar = (args) => {
               PROFILE
             </DropdownToggle>
             <DropdownMenu start>
-              {localStorage.getItem('token') ?
-              <>
-              <DropdownItem>Inbox</DropdownItem>
-              <DropdownItem>Sent Messages</DropdownItem>
-              </>
-              : null} 
-              <DropdownItem divider />
-              {/* change true to state value that determines if the user is logged in or not */}
-              {true ? (
+              {isLoggedIn && (
                 <>
-                  <DropdownItem>
-                    {localStorage.getItem('token') ? (
-                      <button className="logInLogOutBtn" onClick={handleLogout}>
-                        log Out
-                      </button>
-                    ) : (
-                      <button onClick={handleLogin} className="logInLogOutBtn">
-                        Log In
-                      </button>
-                    )}
-                  </DropdownItem>
-                  <DropdownItem onClick={handleSignup}>Sign Up</DropdownItem>
+                  <DropdownItem>Inbox</DropdownItem>
+                  <DropdownItem>Sent Messages</DropdownItem>
                 </>
-              ) : null}
+              )}
+              {/* <DropdownItem divider /> */}
+              {/* change true to state value that determines if the user is logged in or not */}
+
+              <>
+                {isLoggedIn ? (
+                  <DropdownItem>
+                    <button className="logInLogOutBtn" onClick={handleLogout}>
+                      log Out
+                    </button>
+                  </DropdownItem>
+                ) : (
+                  <DropdownItem>
+                    <button onClick={handleLogin} className="logInLogOutBtn">
+                      Log In
+                    </button>
+                  </DropdownItem>
+                )}
+
+                <DropdownItem onClick={handleSignup}>Sign Up</DropdownItem>
+              </>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Collapse>

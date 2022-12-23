@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Home = ({ url }) => {
   const [userName, setUserName] = useState("");
   const [messages, setMessages] = useState([]);
+  const [posts, setPosts] = useState([]);
+  let history = useHistory();
   const handleProfile = async () => {
     // e.preventDefault()
     try {
@@ -18,10 +21,17 @@ const Home = ({ url }) => {
       localStorage.getItem("authorid");
       setUserName(data.data.username);
       setMessages(data.data.messages);
-      console.log(data.data);
+      setPosts(data.data.posts);
+      // console.log(data.data.posts);
     } catch (error) {
       console.error(error);
     }
+  };
+  const handleLogin = () => {
+    history.push("/");
+  };
+  const handleMarketPlace = () => {
+    history.push("/posts");
   };
   useEffect(() => {
     handleProfile();
@@ -31,8 +41,16 @@ const Home = ({ url }) => {
     <>
       <div className="homeHeader">
         <h1>Welcome to Stranger's Things!</h1>
-        <h3>Logged in as: {userName}</h3>
-        <button className="inputBtn">View Marketplace</button>
+        {localStorage.getItem("token") && <h3>Logged in as: {userName}</h3>}
+        {localStorage.getItem("token") ? (
+          <button className="inputBtn" onClick={handleMarketPlace}>
+            View Marketplace
+          </button>
+        ) : (
+          <button className="inputBtn" onClick={handleLogin}>
+            Log In
+          </button>
+        )}
         <hr></hr>
         <h1>Sent Messages</h1>
         <hr></hr>

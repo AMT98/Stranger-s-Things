@@ -205,7 +205,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: grey;
   color: white;
 }
 .msgDetails {
