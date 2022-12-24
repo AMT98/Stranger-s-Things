@@ -4,9 +4,22 @@
   padding: 0px;
   font-family: 'Orbitron', sans-serif;
 }
-body{
+/* body{
   background: white;
 
+} */
+.dark-mode,.header{
+  background-color: #1a1919;
+  color: #999;
+  height: auto;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.light-mode{
+  background-color: #fff;
+  color: #333;
+  height: auto;
+  transition: background-color 0.25s ease-in-out;
 }
 
 .header{

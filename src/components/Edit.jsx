@@ -57,7 +57,7 @@ const Edit = ({ setData, data, token, postId }) => {
       btnTxt="Edit Your Post"
       modalTitle="Edit Post"
       handleSubmit={handleSubmit}
-      submitBtnTxt="Edit"
+      submitBtnTxt="SAVE CHANGES"
     >
       <form className="addForm">
         <h1>Edit The Post</h1>

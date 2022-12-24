@@ -13,6 +13,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { NavLink, useHistory } from "react-router-dom";
+import Darklight from "./Dark-light";
 
 const NavBar = () => {
   let history = useHistory();
@@ -71,6 +72,7 @@ const NavBar = () => {
             </NavItem>
           </Nav>
 
+              {/* <Darklight /> */}
           <UncontrolledDropdown nav inNavbar className="profileNav">
             <DropdownToggle nav caret>
               PROFILE
@@ -88,19 +90,17 @@ const NavBar = () => {
               {/* change true to state value that determines if the user is logged in or not */}
 
               <>
+              <DropdownItem>
                 {isLoggedIn ? (
-                  <DropdownItem>
                     <button className="logInLogOutBtn" onClick={handleLogout}>
                       log Out
                     </button>
-                  </DropdownItem>
                 ) : (
-                  <DropdownItem>
-                    <button onClick={handleLogin} className="logInLogOutBtn">
+                  <button onClick={handleLogin} className="logInLogOutBtn">
                       Log In
                     </button>
-                  </DropdownItem>
                 )}
+                </DropdownItem>
 
                 <DropdownItem onClick={handleSignup}>Sign Up</DropdownItem>
               </>
