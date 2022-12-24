@@ -29,9 +29,11 @@ const Home = ({ url }) => {
   };
   const handleLogin = () => {
     history.push("/");
+    window.location.reload();
   };
   const handleMarketPlace = () => {
     history.push("/posts");
+    window.location.reload();
   };
   useEffect(() => {
     handleProfile();
@@ -43,6 +45,11 @@ const Home = ({ url }) => {
         <h1>Welcome to Stranger's Things!</h1>
         {localStorage.getItem("token") && <h3>Logged in as: {userName}</h3>}
         {localStorage.getItem("token") ? (
+          <h1>Sent Messages</h1>
+        ) : (
+          <h1>Please Login to Continue</h1>
+        )}
+        {localStorage.getItem("token") ? (
           <button className="inputBtn" onClick={handleMarketPlace}>
             View Marketplace
           </button>
@@ -51,7 +58,6 @@ const Home = ({ url }) => {
             Log In
           </button>
         )}
-        {localStorage.getItem('token') ? <h1>Sent Messages</h1> : <h1>Please Login to Continue</h1>}
         <hr></hr>
         <hr></hr>
       </div>

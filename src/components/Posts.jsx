@@ -117,13 +117,13 @@ const Posts = ({ url, token, isAuthor }) => {
                     </div>
                   ) : (
                     <>
-                    <Messages
-                      posts={posts}
-                      url={url}
-                      postId={post._id}
-                      token={token}
-                    />
-                    <View />
+                      <Messages
+                        posts={posts}
+                        url={url}
+                        postId={post._id}
+                        token={token}
+                      />
+                      <View />
                     </>
                   )}
                 </label>

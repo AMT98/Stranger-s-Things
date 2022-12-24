@@ -29,6 +29,8 @@ const Signup = ({ url, token }) => {
         setUserName("");
         setPassword("");
         setDataSuccess(true);
+        history.push("/home");
+        window.location.reload();
       }
 
       localStorage.setItem("token", data.data.token);

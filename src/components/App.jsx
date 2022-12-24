@@ -7,7 +7,6 @@ import Profile from "./Profile";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 
-
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT";
   const [token, setToken] = useState("");
@@ -20,8 +19,7 @@ const App = () => {
   }, []);
   return (
     <>
-      <NavBar 
-      token = {token}/>
+      <NavBar token={token} />
       <Switch>
         <Route exact path="/">
           <Login url={url} token={token} />

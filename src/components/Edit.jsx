@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import Popup from "./Popup";
 
 const Edit = ({ setData, data, token, postId }) => {
@@ -7,7 +7,7 @@ const Edit = ({ setData, data, token, postId }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
-  let history = useHistory()
+  let history = useHistory();
 
   // const [token, setToken] = useState('')
   // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
@@ -45,7 +45,7 @@ const Edit = ({ setData, data, token, postId }) => {
       setDescription("");
       setPrice("");
       setLocation("");
-      history.push('/posts')
+      history.push("/posts");
       console.log(newData);
     } catch (error) {
       console.error(error);

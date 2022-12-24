@@ -13,9 +13,10 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { NavLink, useHistory } from "react-router-dom";
+import img1 from "./images/ST.png";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 const NavBar = () => {
-  console.log(localStorage.getItem('token'));
   let history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -27,51 +28,50 @@ const NavBar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("authorid");
     history.push("/home");
-    window.location.reload()
+    window.location.reload();
   };
   const handleSignup = () => {
     history.push("/signup");
-    
   };
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setIsLoggedIn(true);
     }
-  });
+  }, []);
   return (
     <div>
       <Navbar expand={"xl"}>
-        <NavbarBrand href={isLoggedIn ? "/posts" : "/" }>
-          Stranger's Things
+        <NavbarBrand href={isLoggedIn ? "/posts" : "/"}>
+          <img src={img1} className="logo" alt="logo" />
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink
-                activeClassName="activeNavLinks"
-                className="navLinks"
-                to="/home"
-              >
-                Home
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                activeClassName="activeNavLinks"
-                className="navLinks"
-                to="/posts"
-              >
-                POSTS
-              </NavLink>
-            </NavItem>
-          </Nav>
+          <Nav className="me-auto" navbar></Nav>
+          <NavItem>
+            <NavLink
+              activeClassName="activeNavLinks"
+              className="navLinks"
+              to="/home"
+            >
+              Home
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              activeClassName="activeNavLinks"
+              className="navLinks"
+              to="/posts"
+            >
+              POSTS
+            </NavLink>
+          </NavItem>
+
           <UncontrolledDropdown nav inNavbar className="profileNav">
             <DropdownToggle nav caret>
               PROFILE
             </DropdownToggle>
-            <DropdownMenu start>
-              {localStorage.getItem('token') && (
+            <DropdownMenu start={getValue.toString()}>
+              {localStorage.getItem("token") && (
                 <>
                   <DropdownItem>Inbox</DropdownItem>
                   <DropdownItem onClick={() => history.push("/home")}>
@@ -80,16 +80,16 @@ const NavBar = () => {
                 </>
               )}
               <>
-              <DropdownItem>
-                {localStorage.getItem('token') ? (
+                <DropdownItem>
+                  {localStorage.getItem("token") ? (
                     <h6 className="logInLogOutBtn" onClick={handleLogout}>
                       log Out
                     </h6>
-                ) : (
-                  <h6 onClick={handleLogin} className="logInLogOutBtn">
+                  ) : (
+                    <h6 onClick={handleLogin} className="logInLogOutBtn">
                       Log In
                     </h6>
-                )}
+                  )}
                 </DropdownItem>
 
                 <DropdownItem onClick={handleSignup}>Sign Up</DropdownItem>

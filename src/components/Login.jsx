@@ -5,7 +5,7 @@ const Login = ({ url, token }) => {
   let history = useHistory();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn ] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,8 +30,8 @@ const Login = ({ url, token }) => {
         setIsLoggedIn(false);
         localStorage.setItem("token", data.data.token);
         history.push("/home");
-        window.location.reload()
-      } 
+        window.location.reload();
+      }
     } catch (error) {
       console.error(error);
     }
@@ -65,11 +65,7 @@ const Login = ({ url, token }) => {
               onChange={(e) => setPassword(e.target.value)}
             ></input>
           </label>
-          <button
-            className="inputBtn"
-          >
-            Log in
-          </button>
+          <button className="inputBtn">Log in</button>
           <br></br>
           <br></br>
           <label className="optionLabel">Don't have an account?</label>

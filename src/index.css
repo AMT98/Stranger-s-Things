@@ -77,6 +77,10 @@
 .navLinks:hover {
   color: rgb(124, 114, 114);
 }
+li{
+
+  list-style-type: none;
+}
 .activeNavLinks {
   color: black;
   padding: 2.5px;
@@ -217,4 +221,8 @@
   flex-direction: column;
   flex-wrap: wrap;
 
+}
+.logo {
+  height: auto;
+  width: 150px;
 }
