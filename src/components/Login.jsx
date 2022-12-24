@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import AlertMsg from "./Alert";
+
 
 const Login = ({ url, token }) => {
   let history = useHistory();
