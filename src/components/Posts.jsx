@@ -18,7 +18,7 @@ const Posts = ({ url, token, isAuthor }) => {
     const data = await response.json();
     setPosts(data.data.posts);
   };
-  console.log(posts);
+  // console.log(posts);
 
   useEffect(() => {
     fetchPosts();

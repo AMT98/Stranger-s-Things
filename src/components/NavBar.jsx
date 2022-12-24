@@ -41,7 +41,7 @@ const NavBar = () => {
       setIsLoggedIn(true);
     }
   }, []);
-  console.log(localStorage.getItem('token'));
+  // console.log(localStorage.getItem('token'));
   return (
     <div>
       <Navbar expand={"xl"}>
@@ -79,7 +79,9 @@ const NavBar = () => {
               {isLoggedIn && (
                 <>
                   <DropdownItem>Inbox</DropdownItem>
-                  <DropdownItem>Sent Messages</DropdownItem>
+                  <DropdownItem onClick={() => history.push("/home")}>
+                    Sent Messages
+                  </DropdownItem>
                 </>
               )}
               {/* <DropdownItem divider /> */}
