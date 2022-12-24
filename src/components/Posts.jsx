@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Messages from "./Messages";
 import Add from "./Add";
 import Edit from "./Edit";
+import View from "./View";
 
 const Posts = ({ url, token, isAuthor }) => {
   const [posts, setPosts] = useState([]);
@@ -115,12 +116,15 @@ const Posts = ({ url, token, isAuthor }) => {
                       </button>
                     </div>
                   ) : (
+                    <>
                     <Messages
                       posts={posts}
                       url={url}
                       postId={post._id}
                       token={token}
                     />
+                    <View />
+                    </>
                   )}
                 </label>
               </div>
