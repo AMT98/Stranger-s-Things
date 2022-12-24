@@ -6,54 +6,42 @@ import Edit from "./Edit";
 const Posts = ({ url, token, isAuthor }) => {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  // const [token, setToken] = useState('')
-  // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
 
   const fetchPosts = async () => {
     const response = await fetch(`${url}/posts`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     const data = await response.json();
     setPosts(data.data.posts);
-    console.log(data);
   };
+  console.log(posts);
 
   useEffect(() => {
     fetchPosts();
-    // setToken(localStorage.getItem('token'))
-    // console.log(localStorage.getItem('token'));
-
     localStorage.getItem("authorid");
-
-    // console.log(localStorage.getItem('authorid'));
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   const handleDelete = async (postIdToDelete) => {
-    console.log("postIdToDelete", postIdToDelete);
     const response = await fetch(`${url}/posts/${postIdToDelete}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     const data = await response.json();
-    console.log(data);
+
     if (data) {
       const newPosts = posts.filter((post) => post._id !== postIdToDelete);
       setPosts(newPosts);
     }
-  };
-
-  const handleSearch = (e) => {
-    return setSearchTerm(e.target.value);
   };
 
   return (
@@ -63,24 +51,21 @@ const Posts = ({ url, token, isAuthor }) => {
       </div>
       <hr></hr>
       <form className="postSearchBar" onSubmit={handleSubmit}>
-        {localStorage.getItem('token') ? <Add setData={setPosts} data={posts} token={token} /> : null}
+        {localStorage.getItem("token") ? (
+          <Add setData={setPosts} data={posts} token={token} />
+        ) : null}
         <label>
           <input
             className="searchBar"
             type="search"
             placeholder="Search"
             value={searchTerm}
-            onChange={handleSearch}
+            onChange={(e) => setSearchTerm(e.target.value)}
           ></input>
           <label>
             <button className="searchBtn">
               <span class="material-symbols-outlined">search</span>
             </button>
-
-            {/* <button className="inputBtn"
-                // onClick={handleAddPost}
-                >Add a post</button> */}
-            {/* <Popup btnTxt="Add Post" children={<Add />} /> */}
           </label>
         </label>
       </form>
@@ -94,15 +79,11 @@ const Posts = ({ url, token, isAuthor }) => {
           ) {
             return value;
           } else if (
-            value.description
-              .toLowerCase()
-              .includes(searchTerm.toLocaleLowerCase())
+            value.description.toLowerCase().includes(searchTerm.toLowerCase())
           ) {
             return value;
           } else if (
-            value.location
-              .toLowerCase()
-              .includes(searchTerm.toLocaleLowerCase())
+            value.location.toLowerCase().includes(searchTerm.toLowerCase())
           ) {
             return value;
           }
@@ -119,7 +100,12 @@ const Posts = ({ url, token, isAuthor }) => {
                 <label>
                   {post.author._id === isAuthor ? (
                     <div className="delete-edit-btn">
-                      <Edit setData={setPosts} data={posts} token={token} postId={post._id}/>
+                      <Edit
+                        setData={setPosts}
+                        data={posts}
+                        token={token}
+                        postId={post._id}
+                      />
 
                       <button
                         className="inputBtn"

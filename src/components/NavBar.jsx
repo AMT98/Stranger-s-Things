@@ -41,7 +41,7 @@ const NavBar = () => {
       setIsLoggedIn(true);
     }
   }, []);
-  console.log(isLoggedIn);
+  console.log(localStorage.getItem('token'));
   return (
     <div>
       <Navbar expand={"xl"}>

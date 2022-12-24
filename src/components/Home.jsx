@@ -51,8 +51,8 @@ const Home = ({ url }) => {
             Log In
           </button>
         )}
+        {localStorage.getItem('token') ? <h1>Sent Messages</h1> : <h1>Please Login to Continue</h1>}
         <hr></hr>
-        <h1>Sent Messages</h1>
         <hr></hr>
       </div>
       <div>

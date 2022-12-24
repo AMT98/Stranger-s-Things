@@ -20,7 +20,8 @@ const App = () => {
   }, []);
   return (
     <>
-      <NavBar />
+      <NavBar 
+      token = {token}/>
       <Switch>
         <Route exact path="/">
           <Login url={url} token={token} />
