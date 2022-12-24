@@ -5,11 +5,8 @@ const Login = ({ url, token }) => {
   let history = useHistory();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [dataSuccess, setDataSuccess] = useState(true);
-  // const [token, setToken] = useState('')
-  // useEffect(() => {
-  //     setToken(localStorage.getItem('token'))
-  // },[])
+  const [isLoggedIn, setIsLoggedIn ] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -30,13 +27,11 @@ const Login = ({ url, token }) => {
       setUserName("");
       setPassword("");
       if (data.success) {
-        setDataSuccess(false);
+        setIsLoggedIn(false);
         localStorage.setItem("token", data.data.token);
         history.push("/home");
-        alert("Login was successful!");
-      } else {
-        alert("Username or password you entered was incorrect!");
-      }
+        window.location.reload()
+      } 
     } catch (error) {
       console.error(error);
     }
@@ -44,7 +39,7 @@ const Login = ({ url, token }) => {
 
   return (
     <>
-      {!token ? (
+      {!isLoggedIn ? (
         <form onSubmit={handleSubmit} className="loginInput">
           <h1>LOG IN</h1>
           <label>
@@ -72,9 +67,6 @@ const Login = ({ url, token }) => {
           </label>
           <button
             className="inputBtn"
-            // onClick={() => {
-            //     history.push('/posts')
-            // }}
           >
             Log in
           </button>

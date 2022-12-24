@@ -65,7 +65,7 @@ const Posts = ({ url, token, isAuthor }) => {
           ></input>
           <label>
             <button className="searchBtn">
-              <span class="material-symbols-outlined">search</span>
+              <span className="material-symbols-outlined">search</span>
             </button>
           </label>
         </label>

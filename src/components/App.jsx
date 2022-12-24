@@ -6,15 +6,12 @@ import Signup from "./Signup";
 import Profile from "./Profile";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
-import "./styles.css";
 
 
 const App = () => {
   const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT";
   const [token, setToken] = useState("");
   const [isAuthor, setIsAuthor] = useState("");
-  
-  const [darkMode, setDarkMode] = useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
     setToken(localStorage.getItem("token"));
@@ -23,17 +20,6 @@ const App = () => {
   }, []);
   return (
     <>
-        <div className={darkMode ? "dark-mode" : "light-mode"}>
-      <div className="container">
-        <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
-        <div className="switch-checkbox">
-          <label className="switch">
-            <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
-            <span className="slider round"> </span>
-          </label>
-        </div>
-        <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
-      </div>
       <NavBar 
       token = {token}/>
       <Switch>
@@ -53,7 +39,6 @@ const App = () => {
           <Signup url={url} token={token} />
         </Route>
       </Switch>
-      </div>
     </>
   );
 };

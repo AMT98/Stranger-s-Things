@@ -13,13 +13,12 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { NavLink, useHistory } from "react-router-dom";
-import Darklight from "./Dark-light";
 
 const NavBar = () => {
+  console.log(localStorage.getItem('token'));
   let history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  // const [token, setToken] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => {
     history.push("/");
@@ -28,25 +27,21 @@ const NavBar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("authorid");
     history.push("/home");
+    window.location.reload()
   };
   const handleSignup = () => {
-    // console.log(token);
     history.push("/signup");
+    
   };
-  //   setToken(localStorage.getItem("token"));
-  //   if(localStorage.getItem('token')){
-  //     setIsLoggedIn(true)
-  //   }
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setIsLoggedIn(true);
     }
-  }, []);
-  // console.log(localStorage.getItem('token'));
+  });
   return (
     <div>
       <Navbar expand={"xl"}>
-        <NavbarBrand href={localStorage.getItem("token") ? "/posts" : "/"}>
+        <NavbarBrand href={isLoggedIn ? "/posts" : "/" }>
           Stranger's Things
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -71,14 +66,12 @@ const NavBar = () => {
               </NavLink>
             </NavItem>
           </Nav>
-
-              {/* <Darklight /> */}
           <UncontrolledDropdown nav inNavbar className="profileNav">
             <DropdownToggle nav caret>
               PROFILE
             </DropdownToggle>
             <DropdownMenu start>
-              {isLoggedIn && (
+              {localStorage.getItem('token') && (
                 <>
                   <DropdownItem>Inbox</DropdownItem>
                   <DropdownItem onClick={() => history.push("/home")}>
@@ -86,19 +79,16 @@ const NavBar = () => {
                   </DropdownItem>
                 </>
               )}
-              {/* <DropdownItem divider /> */}
-              {/* change true to state value that determines if the user is logged in or not */}
-
               <>
               <DropdownItem>
-                {isLoggedIn ? (
-                    <button className="logInLogOutBtn" onClick={handleLogout}>
+                {localStorage.getItem('token') ? (
+                    <h6 className="logInLogOutBtn" onClick={handleLogout}>
                       log Out
-                    </button>
+                    </h6>
                 ) : (
-                  <button onClick={handleLogin} className="logInLogOutBtn">
+                  <h6 onClick={handleLogin} className="logInLogOutBtn">
                       Log In
-                    </button>
+                    </h6>
                 )}
                 </DropdownItem>
 
