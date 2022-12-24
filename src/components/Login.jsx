@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import AlertMsg from "./Alert";
 
 const Login = ({ url, token }) => {
   let history = useHistory();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loginMsg, setLoginMsg] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,16 +34,21 @@ const Login = ({ url, token }) => {
         history.push("/home");
         window.location.reload();
       }
+      if(!data.success){
+      setLoginMsg(data.error.message)
+        
+      }
     } catch (error) {
       console.error(error);
     }
   };
-
+  
   return (
     <>
       {!isLoggedIn ? (
         <form onSubmit={handleSubmit} className="loginInput">
           <h1>LOG IN</h1>
+            {loginMsg ? <h6>{loginMsg}</h6> : null}
           <label>
             <input
               className="inputField"
@@ -63,7 +70,7 @@ const Login = ({ url, token }) => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            ></input>
+              ></input>
           </label>
           <button className="inputBtn">Log in</button>
           <br></br>

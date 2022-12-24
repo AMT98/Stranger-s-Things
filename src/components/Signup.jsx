@@ -6,6 +6,8 @@ const Signup = ({ url, token }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [dataSuccess, setDataSuccess] = useState(false);
+  const [signUpMsg, setSignUpMsg] = useState('')
+
   // const [token, setToken] = useState('')
   // console.log(userName);
   const handleSubmit = async (event) => {
@@ -25,13 +27,17 @@ const Signup = ({ url, token }) => {
       });
       const data = await response.json();
       console.log(data);
+      setUserName("");
+      setPassword("");
       if (data.success) {
-        setUserName("");
-        setPassword("");
         setDataSuccess(true);
         history.push("/home");
         window.location.reload();
       }
+      if(!data.success){
+        setSignUpMsg(data.error.message)
+          
+        }
 
       localStorage.setItem("token", data.data.token);
       // setToken(localStorage.getItem('token'))
@@ -45,6 +51,7 @@ const Signup = ({ url, token }) => {
     <>
       <form onSubmit={handleSubmit} className="loginInput">
         <h1>Sign up</h1>
+        {signUpMsg ? <h6>{signUpMsg}</h6> : null}
         <label>
           <input
             className="inputField"
