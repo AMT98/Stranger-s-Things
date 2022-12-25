@@ -120,7 +120,12 @@ const Posts = ({ url, token, isAuthor }) => {
                       </button>
                     </div>
                   ) : (
-                    <View />
+                    <View 
+                    postTitle = {post.title}
+                    postDescription = {post.description}
+                    postPrice = {post.price}
+                    postLocation = {post.location}
+                    postDeliver = {post.willDeliver}/>
                   )}
                 </label>
                 {token && post.author._id !== isAuthor ? (

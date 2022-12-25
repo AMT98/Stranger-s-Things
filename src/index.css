@@ -246,3 +246,7 @@ button:focus {
   font-family: 'Oleo Script', cursive;
   font-size: 28px;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
