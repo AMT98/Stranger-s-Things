@@ -58,8 +58,26 @@ const Home = ({ url }) => {
       </div>
       {localStorage.getItem("token") ? (
         <>
+        <div>
+        <h1 className="postContainer msgContainer">
+                  Inbox
+                  <span className="material-symbols-outlined">
+                    mark_email_unread
+                  </span>
+                </h1>
+                <hr></hr>
           <Inbox messages={messages} userName={userName} />
+                <hr></hr>
+        </div>
+        <div>
+        <h1 className="postContainer msgContainer">
+                  Outbox
+                  <span className="material-symbols-outlined">
+                    outgoing_mail
+                  </span>
+                </h1>
           <Outbox messages={messages} userName={userName} />
+        </div>
         </>
       ) : null}
     </>

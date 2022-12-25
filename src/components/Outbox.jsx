@@ -6,21 +6,15 @@ const Outbox = ({ messages, userName }) => {
       {messages.map((message, i) => {
         if (message.fromUser.username === userName) {
           return (
-            <div key={i} className="postContainer msgContainer">
-              <div className="postDetails msgDetails">
-                <h1 className="postContainer msgContainer">
-                  Outbox
-                  <span className="material-symbols-outlined">
-                    outgoing_mail
-                  </span>
-                </h1>
-                <hr></hr>
+            <div key={i} className="msgContainer">
+              <div className="msgDetails">
                 <h4>
                   {i}. Post title:- {message.post.title}
+                  <hr></hr>
                 </h4>
-                <p>
-                  {userName}: {message.content}
-                </p>
+                <h6>
+                  {userName} [You]: {message.content}
+                </h6>
               </div>
             </div>
           );
