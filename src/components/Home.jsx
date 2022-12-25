@@ -35,15 +35,22 @@ const Home = ({ url }) => {
   useEffect(() => {
     handleProfile();
   }, []);
-  
+
   return (
     <>
       <div className="homeHeader">
         <h1>Welcome to Stranger's Things!</h1>
-        {localStorage.getItem("token") && <h3>Logged in as: {userName}</h3>}
-        {localStorage.getItem("token") ? null : (
+        <br></br>
+        <h3>Stranger's Things is an online marketplace to buy and sell.</h3>
+        <h3>Connect with local buyers and sellers now!</h3>
+        <br></br>
+        {localStorage.getItem("token") ? (
+          <>
+            <h3>Logged in as: {userName}</h3>
+          </>
+        ) : (
           <h1>Please Signup/Login to Continue</h1>
-          )}
+        )}
         {localStorage.getItem("token") ? (
           <button className="inputBtn" onClick={handleMarketPlace}>
             View Marketplace
@@ -58,26 +65,24 @@ const Home = ({ url }) => {
       </div>
       {localStorage.getItem("token") ? (
         <>
-        <div>
-        <h1 className="postContainer msgContainer">
-                  Inbox
-                  <span className="material-symbols-outlined">
-                    mark_email_unread
-                  </span>
-                </h1>
-                <hr></hr>
-          <Inbox messages={messages} userName={userName} />
-                <hr></hr>
-        </div>
-        <div>
-        <h1 className="postContainer msgContainer">
-                  Outbox
-                  <span className="material-symbols-outlined">
-                    outgoing_mail
-                  </span>
-                </h1>
-          <Outbox messages={messages} userName={userName} />
-        </div>
+          <div>
+            <h1 className="postContainer msgContainer">
+              Inbox
+              <span className="material-symbols-outlined">
+                mark_email_unread
+              </span>
+            </h1>
+            <hr></hr>
+            <Inbox messages={messages} userName={userName} />
+            <hr></hr>
+          </div>
+          <div>
+            <h1 className="postContainer msgContainer">
+              Outbox
+              <span className="material-symbols-outlined">outgoing_mail</span>
+            </h1>
+            <Outbox messages={messages} userName={userName} />
+          </div>
         </>
       ) : null}
     </>
