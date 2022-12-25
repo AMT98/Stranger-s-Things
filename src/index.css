@@ -4,11 +4,14 @@
   padding: 0px;
   font-family: 'Orbitron', sans-serif;
 }
-
+body{
+  background-color:rgb(240, 240, 240);
+  
+}
 .header{
   padding: 30px;
   display: flex;
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   color: black;
   align-items: center;
   justify-content:space-between;
@@ -50,7 +53,7 @@
   padding: 10px;
   border-radius: 40px;
   border-color: gray;
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   letter-spacing: 1px;
   font-size: 12px;
   font-weight: bolder;
@@ -59,7 +62,7 @@
 }
 .inputBtn:hover, .createBtn:hover, .checkedInput:hover{
   background-color: black;
-  color: white;
+  color: rgb(240, 240, 240);
   font-weight: bolder;
   border-top: none;
   border-bottom: none;
@@ -82,9 +85,9 @@ li{
   list-style-type: none;
 }
 .activeNavLinks {
-  color: black;
+  color: white;
   padding: 2.5px;
-  background-color: grey;
+  background-color: #BB2D3B;
   border-radius: 5px;
 }
 .postHeader {
@@ -112,7 +115,7 @@ li{
   min-height: 600px;
   border: 1px solid black;
   border-radius: 60px;
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   cursor: pointer;
   opacity: 0.8;
 }
@@ -144,7 +147,7 @@ li{
   justify-content: center;
   display:inline-flex;
   gap: 20px;
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   padding: 15px;
   position: relative;
   top: 6px;
@@ -205,8 +208,8 @@ li{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: grey;
-  color: white;
+  background-color: rgb(231, 231, 231);
+  color: black;
 }
 .msgDetails {
   width: auto;
@@ -224,5 +227,19 @@ li{
 }
 .logo {
   height: auto;
-  width: 150px;
+  width: 70px;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.postsBtn{
+  position: relative;
+  left: 22%;
+}
+.headerTitle {
+  font-family: 'Oleo Script', cursive;
+  font-size: 28px;
 }

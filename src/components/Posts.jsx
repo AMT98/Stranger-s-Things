@@ -19,7 +19,6 @@ const Posts = ({ url, token, isAuthor }) => {
     const data = await response.json();
     setPosts(data.data.posts);
   };
-  // console.log(posts);
 
   useEffect(() => {
     fetchPosts();
@@ -116,17 +115,19 @@ const Posts = ({ url, token, isAuthor }) => {
                       </button>
                     </div>
                   ) : (
-                    <>
-                      <Messages
-                        posts={posts}
-                        url={url}
-                        postId={post._id}
-                        token={token}
-                      />
-                      <View />
-                    </>
+                    <View />
                   )}
                 </label>
+                {token && post.author._id !== isAuthor ? (
+                  <div className="postsBtn">
+                    <Messages
+                      posts={posts}
+                      url={url}
+                      postId={post._id}
+                      token={token}
+                    />
+                  </div>
+                ) : null}
               </div>
             </div>
           );

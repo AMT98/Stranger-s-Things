@@ -9,16 +9,7 @@ const Edit = ({ setData, data, token, postId }) => {
   const [location, setLocation] = useState("");
   let history = useHistory();
 
-  // const [token, setToken] = useState('')
-  // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhYzc5MjUxMGEwODAwMTcyOTM1NmQiLCJ1c2VybmFtZSI6IkFzd2luIiwiaWF0IjoxNjcxMTUxOTcxfQ.Jzjv0Q3phc_xG52_7b7wJA-Kd40zOrNWKwW9gNolATU"
-  // let history= useHistory()
-
-  // useEffect(() => {
-  //     setToken(localStorage.getItem('token'))
-  // },[])
-
   const handleSubmit = async (e) => {
-    // console.log("submitted");
     e.preventDefault();
     const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT";
     try {
@@ -38,8 +29,6 @@ const Edit = ({ setData, data, token, postId }) => {
         }),
       });
       const newData = await response.json();
-      // console.log(newData);
-      // console.log(...data, newData.data.post);
       setData([...data, newData.data.post]);
       setTitle("");
       setDescription("");
@@ -109,9 +98,6 @@ const Edit = ({ setData, data, token, postId }) => {
             <option value="no">No</option>
           </select>
         </label>
-        {/* <button 
-            className="addInput createBtn"
-            >CREATE</button> */}
       </form>
     </Popup>
   );

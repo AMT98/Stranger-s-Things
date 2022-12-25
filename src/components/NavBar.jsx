@@ -6,7 +6,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  // NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -41,8 +40,9 @@ const NavBar = () => {
   return (
     <div>
       <Navbar expand={"xl"}>
-        <NavbarBrand href={isLoggedIn ? "/posts" : "/"}>
+        <NavbarBrand className="headerTitle" href={isLoggedIn ? "/posts" : "/"}>
           <img src={img1} className="logo" alt="logo" />
+          STRANGER'S THINGS
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

@@ -6,10 +6,8 @@ const Signup = ({ url, token }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [dataSuccess, setDataSuccess] = useState(false);
-  const [signUpMsg, setSignUpMsg] = useState('')
+  const [signUpMsg, setSignUpMsg] = useState("");
 
-  // const [token, setToken] = useState('')
-  // console.log(userName);
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -34,14 +32,11 @@ const Signup = ({ url, token }) => {
         history.push("/home");
         window.location.reload();
       }
-      if(!data.success){
-        setSignUpMsg(data.error.message)
-          
-        }
+      if (!data.success) {
+        setSignUpMsg(data.error.message);
+      }
 
       localStorage.setItem("token", data.data.token);
-      // setToken(localStorage.getItem('token'))
-      // console.log(token);
     } catch (error) {
       console.error(error);
     }
@@ -59,6 +54,7 @@ const Signup = ({ url, token }) => {
             placeholder="Username*"
             maxLength="10"
             required
+            autoFocus
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           ></input>

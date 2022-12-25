@@ -7,10 +7,8 @@ const Home = ({ url }) => {
   const [posts, setPosts] = useState([]);
   let history = useHistory();
   const handleProfile = async () => {
-    // e.preventDefault()
     try {
       const response = await fetch(`${url}/users/me`, {
-        // method: 'GET',
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -22,7 +20,6 @@ const Home = ({ url }) => {
       setUserName(data.data.username);
       setMessages(data.data.messages);
       setPosts(data.data.posts);
-      // console.log(data.data.posts);
     } catch (error) {
       console.error(error);
     }
@@ -44,10 +41,8 @@ const Home = ({ url }) => {
       <div className="homeHeader">
         <h1>Welcome to Stranger's Things!</h1>
         {localStorage.getItem("token") && <h3>Logged in as: {userName}</h3>}
-        {localStorage.getItem("token") ? (
-          <h1>Sent Messages</h1>
-        ) : (
-          <h1>Please Login to Continue</h1>
+        {localStorage.getItem("token") ? null : (
+          <h1>Please Signup/Login to Continue</h1>
         )}
         {localStorage.getItem("token") ? (
           <button className="inputBtn" onClick={handleMarketPlace}>
