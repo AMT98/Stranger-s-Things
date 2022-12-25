@@ -53,7 +53,7 @@ const NavBar = () => {
               className="navLinks"
               to="/home"
             >
-              Home
+              HOME
             </NavLink>
           </NavItem>
           <NavItem>
@@ -68,14 +68,20 @@ const NavBar = () => {
 
           <UncontrolledDropdown nav inNavbar className="profileNav">
             <DropdownToggle nav caret>
-              PROFILE
+              PROFILE<span className="material-symbols-outlined">person</span>
             </DropdownToggle>
             <DropdownMenu start={getValue.toString()}>
               {localStorage.getItem("token") && (
                 <>
-                  <DropdownItem>Inbox</DropdownItem>
+                  <DropdownItem>
+                    Inbox
+                    <span className="material-symbols-outlined">
+                      mark_email_unread
+                    </span>
+                  </DropdownItem>
                   <DropdownItem onClick={() => history.push("/home")}>
-                    Sent Messages
+                    Outbox
+                    <span className="material-symbols-outlined">outgoing_mail</span>
                   </DropdownItem>
                 </>
               )}
@@ -83,11 +89,13 @@ const NavBar = () => {
                 <DropdownItem>
                   {localStorage.getItem("token") ? (
                     <h6 className="logInLogOutBtn" onClick={handleLogout}>
-                      log Out
+                      Log Out
+                      <span className="material-symbols-outlined">logout</span>
                     </h6>
                   ) : (
                     <h6 onClick={handleLogin} className="logInLogOutBtn">
                       Log In
+                      <span className="material-symbols-outlined">login</span>
                     </h6>
                   )}
                 </DropdownItem>

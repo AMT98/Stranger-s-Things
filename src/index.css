@@ -21,7 +21,11 @@ body{
   gap: 30px;
 
 }
-
+.material-symbols-outlined{
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
 .loginInput {
   text-align: center;
   display: flex;
@@ -69,7 +73,7 @@ body{
   letter-spacing: 2px;
   transform: scale(1.10);
   transition: 0.55s;
-  box-shadow: inset 200px 0 0 0 black;
+  box-shadow: inset 200px 0 0 0 #BB2D3B;
   border-radius: 40px;
 }
 .navLinks {
@@ -109,8 +113,9 @@ li{
   width: 350px;
   display: flex;
   flex-direction: column;
-  margin: 10px;
-  gap: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 5px;
   padding: 30px;
   min-height: 600px;
   border: 1px solid black;
@@ -186,8 +191,8 @@ li{
 }
 
 .profileNav{
-  list-style: none;
   margin-right: 5rem;
+  margin-left: 2rem;
 }
 
 .logInLogOutBtn {
@@ -212,18 +217,16 @@ li{
   color: black;
 }
 .msgDetails {
-  width: auto;
+  width: 750px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   min-height: 10px;
 }
-
 .msgContainer{
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
+  align-items: center;
+  justify-content: center;
 }
 .logo {
   height: auto;
@@ -243,3 +246,8 @@ button:focus {
   font-family: 'Oleo Script', cursive;
   font-size: 28px;
 }
+/* .mail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

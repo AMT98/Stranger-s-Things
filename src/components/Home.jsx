@@ -5,6 +5,7 @@ const Home = ({ url }) => {
   const [userName, setUserName] = useState("");
   const [messages, setMessages] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [inbox, setInbox] = useState([]);
   let history = useHistory();
   const handleProfile = async () => {
     try {
@@ -58,16 +59,31 @@ const Home = ({ url }) => {
       </div>
       <div>
         {messages.map((message, i) => {
-          return (
-            <div key={i} className="postContainer msgContainer">
-              <div className="postDetails msgDetails">
-                <h4>
-                  {i}. Post title:- {message.post.title}
-                </h4>
-                <p>- Your Message: {message.content}</p>
+          if (message.fromUser.username === userName) {
+            return (
+              <div key={i} className="postContainer msgContainer">
+                <div className="postDetails msgDetails">
+                  <h1 className="postContainer msgContainer">Outbox</h1>
+                <hr></hr>
+                  <h4>
+                    {i}. Post title:- {message.post.title}
+                  </h4>
+                  <p>- Your Message: {message.content}</p>
+                </div>
               </div>
-            </div>
-          );
+            );
+          } else {
+            return (
+              <div key={i} className="postContainer msgContainer">
+                <div className="postDetails msgDetails">
+                  <h1 className="postContainer msgContainer">Inbox</h1>
+                <hr></hr>
+                  <h4>Post title:- {message.post.title}</h4>
+                  <p>- Message: {message.content}</p>
+                </div>
+              </div>
+            );
+          }
         })}
       </div>
     </>
