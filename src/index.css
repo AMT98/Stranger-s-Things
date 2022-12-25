@@ -216,7 +216,7 @@ li{
   align-items: center;
   background-color: rgb(231, 231, 231);
   color: black;
-  margin-left: 2%;
+  padding-left: 2%;
 }
 .msgDetails {
   width: 600px;

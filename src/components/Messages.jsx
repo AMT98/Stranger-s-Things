@@ -20,7 +20,6 @@ const Messages = ({ url, posts, postId, token }) => {
         }),
       });
       const newData = await response.json();
-      console.log(newData);
     } catch (error) {
       console.error(error);
     }

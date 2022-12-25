@@ -24,7 +24,6 @@ const Signup = ({ url, token }) => {
         }),
       });
       const data = await response.json();
-      console.log(data);
       setUserName("");
       setPassword("");
       if (data.success) {

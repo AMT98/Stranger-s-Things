@@ -13,7 +13,6 @@ const Profile = ({ url, token }) => {
       });
       const data = await response.json();
       localStorage.setItem("authorid", data.data._id);
-      console.log(data);
       setUserName(data.data.username);
     } catch (error) {
       console.error(error);
@@ -22,7 +21,6 @@ const Profile = ({ url, token }) => {
   useEffect(() => {
     handleProfile();
   });
-  console.log(userName);
   return (
     <form>
       <button>{userName}</button>
