@@ -217,7 +217,7 @@ li{
   color: black;
 }
 .msgDetails {
-  width: 750px;
+  width: 600px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -246,8 +246,3 @@ button:focus {
   font-family: 'Oleo Script', cursive;
   font-size: 28px;
 }
-/* .mail{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */

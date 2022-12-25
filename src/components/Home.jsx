@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import Inbox from "./Inbox";
+import Outbox from "./Outbox";
 
 const Home = ({ url }) => {
   const [userName, setUserName] = useState("");
   const [messages, setMessages] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [inbox, setInbox] = useState([]);
   let history = useHistory();
   const handleProfile = async () => {
     try {
@@ -20,7 +20,6 @@ const Home = ({ url }) => {
       localStorage.getItem("authorid");
       setUserName(data.data.username);
       setMessages(data.data.messages);
-      setPosts(data.data.posts);
     } catch (error) {
       console.error(error);
     }
@@ -57,35 +56,12 @@ const Home = ({ url }) => {
         <hr></hr>
         <hr></hr>
       </div>
-      <div>
-        {messages.map((message, i) => {
-          if (message.fromUser.username === userName) {
-            return (
-              <div key={i} className="postContainer msgContainer">
-                <div className="postDetails msgDetails">
-                  <h1 className="postContainer msgContainer">Outbox</h1>
-                <hr></hr>
-                  <h4>
-                    {i}. Post title:- {message.post.title}
-                  </h4>
-                  <p>- Your Message: {message.content}</p>
-                </div>
-              </div>
-            );
-          } else {
-            return (
-              <div key={i} className="postContainer msgContainer">
-                <div className="postDetails msgDetails">
-                  <h1 className="postContainer msgContainer">Inbox</h1>
-                <hr></hr>
-                  <h4>Post title:- {message.post.title}</h4>
-                  <p>- Message: {message.content}</p>
-                </div>
-              </div>
-            );
-          }
-        })}
-      </div>
+      {localStorage.getItem("token") ? (
+        <>
+          <Outbox messages={messages} userName={userName} />
+          <Inbox messages={messages} userName={userName} />
+        </>
+      ) : null}
     </>
   );
 };
