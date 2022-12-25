@@ -20,11 +20,11 @@ const View = ({
         <form>
           <label>
             Title:
-            <textarea
+            <input
               className="addInput"
               readOnly
               value={postTitle}
-            ></textarea>
+            ></input>
           </label>
           <label>
             Description:

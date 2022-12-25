@@ -26,11 +26,11 @@ const Home = ({ url }) => {
   };
   const handleLogin = () => {
     history.push("/");
-    window.location.reload();
+    // window.location.reload();
   };
   const handleMarketPlace = () => {
     history.push("/posts");
-    window.location.reload();
+    // window.location.reload();
   };
   useEffect(() => {
     handleProfile();
