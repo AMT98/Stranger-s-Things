@@ -2,7 +2,7 @@ import React from "react";
 
 const Inbox = ({ messages, userName }) => {
   return (
-    <div>
+    <div id="inbox">
       {messages.map((message, i) => {
         if (message.fromUser.username !== userName) {
           return (

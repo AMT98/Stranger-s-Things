@@ -105,6 +105,11 @@ const Posts = ({ url, token, isAuthor }) => {
                         data={posts}
                         token={token}
                         postId={post._id}
+                        postTitle = {post.title}
+                        postDescription = {post.description}
+                        postPrice = {post.price}
+                        postLocation = {post.location}
+                        postDeliver = {post.willDeliver}
                       />
 
                       <button

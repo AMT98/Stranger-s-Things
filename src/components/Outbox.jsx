@@ -2,7 +2,7 @@ import React from "react";
 
 const Outbox = ({ messages, userName }) => {
   return (
-    <div>
+    <div id="outbox">
       {messages.map((message, i) => {
         if (message.fromUser.username === userName) {
           return (

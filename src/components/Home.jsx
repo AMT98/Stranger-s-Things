@@ -58,8 +58,8 @@ const Home = ({ url }) => {
       </div>
       {localStorage.getItem("token") ? (
         <>
-          <Outbox messages={messages} userName={userName} />
           <Inbox messages={messages} userName={userName} />
+          <Outbox messages={messages} userName={userName} />
         </>
       ) : null}
     </>

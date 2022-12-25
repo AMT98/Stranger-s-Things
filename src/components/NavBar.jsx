@@ -74,14 +74,16 @@ const NavBar = () => {
               {localStorage.getItem("token") && (
                 <>
                   <DropdownItem>
-                    Inbox
+                    <a href="#inbox">Inbox</a>
                     <span className="material-symbols-outlined">
                       mark_email_unread
                     </span>
                   </DropdownItem>
-                  <DropdownItem onClick={() => history.push("/home")}>
-                    Outbox
-                    <span className="material-symbols-outlined">outgoing_mail</span>
+                  <DropdownItem>
+                    <a href="#outbox">Outbox</a>
+                    <span className="material-symbols-outlined">
+                      outgoing_mail
+                    </span>
                   </DropdownItem>
                 </>
               )}

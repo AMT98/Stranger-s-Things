@@ -2,11 +2,21 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Popup from "./Popup";
 
-const Edit = ({ setData, data, token, postId }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [location, setLocation] = useState("");
+const Edit = (
+  {
+  setData,
+  data, 
+  token, 
+  postId,
+  postDescription,
+  postPrice,
+  postLocation,
+  // postDeliver, 
+  postTitle }) => {
+  const [title, setTitle] = useState(postTitle);
+  const [description, setDescription] = useState(postDescription);
+  const [price, setPrice] = useState(postPrice);
+  const [location, setLocation] = useState(postLocation);
   let history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -25,6 +35,7 @@ const Edit = ({ setData, data, token, postId }) => {
             description: `${description}`,
             price: `${price}`,
             location: `${location}`,
+            
           },
         }),
       });
@@ -36,6 +47,7 @@ const Edit = ({ setData, data, token, postId }) => {
       setLocation("");
       history.push("/posts");
       console.log(newData);
+      window.location.reload()
     } catch (error) {
       console.error(error);
     }
