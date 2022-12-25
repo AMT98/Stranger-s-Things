@@ -42,7 +42,7 @@ body{
   border-radius: 10px;
 }
 .searchBar {
-  min-width: 20rem;
+  min-width: 18rem;
   padding: 15px;
   margin: 10px 0px ;
   border-top-left-radius: 20px;
@@ -243,7 +243,7 @@ li{
 }
 .logo {
   height: auto;
-  width: 70px;
+  width: 45px;
 }
 input:focus,
 select:focus,
@@ -257,5 +257,5 @@ button:focus {
 }
 .headerTitle {
   font-family: 'Oleo Script', cursive;
-  font-size: 28px;
+  font-size: 25px;
 }
