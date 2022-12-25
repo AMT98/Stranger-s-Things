@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Inbox = ({ messages, userName }) => {
   return (
     <div id="inbox">

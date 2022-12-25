@@ -35,7 +35,7 @@ const Home = ({ url }) => {
   useEffect(() => {
     handleProfile();
   }, []);
-
+  
   return (
     <>
       <div className="homeHeader">
@@ -43,7 +43,7 @@ const Home = ({ url }) => {
         {localStorage.getItem("token") && <h3>Logged in as: {userName}</h3>}
         {localStorage.getItem("token") ? null : (
           <h1>Please Signup/Login to Continue</h1>
-        )}
+          )}
         {localStorage.getItem("token") ? (
           <button className="inputBtn" onClick={handleMarketPlace}>
             View Marketplace

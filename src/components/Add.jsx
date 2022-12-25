@@ -5,10 +5,9 @@ const Add = ({ setData, data, token }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("[On Request]");
 
   const handleSubmit = async (e) => {
-    console.log("submitted");
     e.preventDefault();
     const url = "https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT";
     try {

@@ -32,6 +32,9 @@ const NavBar = () => {
   const handleSignup = () => {
     history.push("/signup");
   };
+  const handleMsg = () => {
+    history.push('/home')
+  }
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setIsLoggedIn(true);
@@ -73,14 +76,16 @@ const NavBar = () => {
             <DropdownMenu start={getValue.toString()}>
               {localStorage.getItem("token") && (
                 <>
-                  <DropdownItem>
-                    <a href="#inbox">Inbox</a>
+                  <DropdownItem
+                  onClick={handleMsg}>
+                    Inbox
                     <span className="material-symbols-outlined">
                       mark_email_unread
                     </span>
                   </DropdownItem>
-                  <DropdownItem>
-                    <a href="#outbox">Outbox</a>
+                  <DropdownItem
+                  onClick={handleMsg}>
+                    Outbox
                     <span className="material-symbols-outlined">
                       outgoing_mail
                     </span>

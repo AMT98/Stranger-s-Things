@@ -250,3 +250,7 @@ a{
   text-decoration: none;
   color: black;
 }
+.carouselImg {
+  width: 500px;
+  height: 400px;
+}

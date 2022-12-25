@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import Popup from "./Popup";
 
 const Edit = (
@@ -17,7 +16,6 @@ const Edit = (
   const [description, setDescription] = useState(postDescription);
   const [price, setPrice] = useState(postPrice);
   const [location, setLocation] = useState(postLocation);
-  let history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,15 +37,13 @@ const Edit = (
           },
         }),
       });
+      window.location.reload()
       const newData = await response.json();
       setData([...data, newData.data.post]);
       setTitle("");
       setDescription("");
       setPrice("");
       setLocation("");
-      history.push("/posts");
-      console.log(newData);
-      window.location.reload()
     } catch (error) {
       console.error(error);
     }
